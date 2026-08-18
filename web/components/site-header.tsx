@@ -2,14 +2,15 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { LanguageToggle, useT, type Key } from "@/lib/i18n";
 
-const NAV = [
-  { href: "/atlas", label: "Atlas" },
-  { href: "/analysis", label: "Analysis" },
-  { href: "/segments", label: "Segments" },
-  { href: "/method", label: "Method" },
-  { href: "/sources", label: "Sources" },
-  { href: "/limitations", label: "Limits" },
+const NAV: { href: string; key: Key }[] = [
+  { href: "/atlas", key: "navAtlas" },
+  { href: "/analysis", key: "navAnalysis" },
+  { href: "/segments", key: "navSegments" },
+  { href: "/method", key: "navMethod" },
+  { href: "/sources", key: "navSources" },
+  { href: "/limitations", key: "navLimits" },
 ];
 
 /**
@@ -21,6 +22,7 @@ const NAV = [
  */
 export function SiteHeader({ badge }: { badge?: string }) {
   const pathname = usePathname();
+  const t = useT();
 
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-surface/95 backdrop-blur">
@@ -30,7 +32,7 @@ export function SiteHeader({ badge }: { badge?: string }) {
           className="flex shrink-0 items-center gap-2 text-sm font-medium text-foreground transition-colors hover:text-channel-dim dark:hover:text-channel"
         >
           <span aria-hidden>←</span>
-          <span className="whitespace-nowrap">Dravyavati Atlas</span>
+          <span className="whitespace-nowrap">{t("brand")}</span>
         </Link>
 
         {badge && (
@@ -53,10 +55,11 @@ export function SiteHeader({ badge }: { badge?: string }) {
                     : "text-fog hover:text-foreground"
                 }`}
               >
-                {item.label}
+                {t(item.key)}
               </Link>
             );
           })}
+          <LanguageToggle className="ml-1" />
           <a
             href="/brief/Dravyavati_Corridor_Constraint_Atlas_Brief.pdf"
             className="ml-1 shrink-0 whitespace-nowrap rounded-full border border-line px-2.5 py-1 text-xs text-foreground transition-colors hover:border-channel"

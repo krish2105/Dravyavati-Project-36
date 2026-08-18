@@ -5,6 +5,7 @@ import { MapShell } from "@/components/atlas/map-shell";
 import { LegendPanel } from "@/components/atlas/legend-panel";
 import { SiteHeader } from "@/components/site-header";
 import { useJson, type Analytics } from "@/lib/analytics";
+import { useT, useLang } from "@/lib/i18n";
 
 /**
  * Command-centre layout. The map is the hero surface and owns all remaining
@@ -19,22 +20,23 @@ import { useJson, type Analytics } from "@/lib/analytics";
  */
 
 function StatBar({ analytics }: { analytics: Analytics | null }) {
+  const t = useT();
   const items = analytics
     ? [
-        { label: "Reconstructed", value: `${analytics.corridor.length_km.toFixed(1)} km` },
-        { label: "Segments", value: String(analytics.corridor.segments) },
-        { label: "Constraints", value: String(analytics.corridor.constraint_count) },
-        { label: "Robust hotspots", value: String(analytics.robust_hotspots), accent: true },
-        { label: "High severity", value: String(analytics.severity.high ?? 0), accent: true },
-        { label: "Rail crossings", value: String(analytics.crossings.railway) },
-        { label: "Cross-drainage", value: String(analytics.crossings.cross_drainage) },
-        { label: "Below IRC radius", value: String(analytics.irc86.segments_below) },
+        { label: t("reconstructed"), value: `${analytics.corridor.length_km.toFixed(1)} km` },
+        { label: t("segments"), value: String(analytics.corridor.segments) },
+        { label: t("constraints"), value: String(analytics.corridor.constraint_count) },
+        { label: t("robustHotspots"), value: String(analytics.robust_hotspots), accent: true },
+        { label: t("highSeverity"), value: String(analytics.severity.high ?? 0), accent: true },
+        { label: t("railCrossings"), value: String(analytics.crossings.railway) },
+        { label: t("crossDrainage"), value: String(analytics.crossings.cross_drainage) },
+        { label: t("belowIrc"), value: String(analytics.irc86.segments_below) },
       ]
     : [];
 
   return (
     <div className="flex items-stretch gap-px overflow-x-auto border-b border-line bg-line [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-      {items.length === 0 && <div className="bg-surface px-4 py-2 text-xs text-fog">Loading…</div>}
+      {items.length === 0 && <div className="bg-surface px-4 py-2 text-xs text-fog">{t("loading")}</div>}
       {items.map((it) => (
         <div key={it.label} className="shrink-0 bg-surface px-4 py-2">
           <div
@@ -56,6 +58,9 @@ export default function AtlasPage() {
   const [railOpen, setRailOpen] = useState(false);
   const [terrain3d, setTerrain3d] = useState(false);
   const [zoningOverlay, setZoningOverlay] = useState(false);
+  const [showMarkers, setShowMarkers] = useState(true);
+  const t = useT();
+  const { lang } = useLang();
   const analytics = useJson<Analytics>("/data/analytics.json");
 
   return (
@@ -83,7 +88,13 @@ export default function AtlasPage() {
         )}
 
         <div className="relative min-h-0 min-w-0 flex-1">
-          <MapShell showRobustOnly={showRobustOnly} terrain3d={terrain3d} zoningOverlay={zoningOverlay} />
+          <MapShell
+            showRobustOnly={showRobustOnly}
+            terrain3d={terrain3d}
+            zoningOverlay={zoningOverlay}
+            showMarkers={showMarkers}
+            lang={lang}
+          />
 
           {/* Controls float over the map, wrapping instead of overlapping. */}
           <div className="pointer-events-none absolute inset-x-0 top-0 z-10 flex flex-wrap items-start justify-between gap-2 p-3">
@@ -92,7 +103,7 @@ export default function AtlasPage() {
               onClick={() => setRailOpen(true)}
               className="pointer-events-auto rounded-full border border-line bg-surface/95 px-3 py-1.5 text-xs text-foreground shadow-lg backdrop-blur transition-colors hover:border-channel lg:hidden"
             >
-              Legend
+              {t("legend")}
             </button>
 
             <button
@@ -105,7 +116,7 @@ export default function AtlasPage() {
                   : "border-line bg-surface/95 text-fog hover:border-channel"
               }`}
             >
-              Zoning sheet
+              {t("zoningSheet")}
             </button>
 
             <button
@@ -118,7 +129,20 @@ export default function AtlasPage() {
                   : "border-line bg-surface/95 text-fog hover:border-channel"
               }`}
             >
-              3D terrain
+              {t("terrain3d")}
+            </button>
+
+            <button
+              type="button"
+              aria-pressed={showMarkers}
+              onClick={() => setShowMarkers((v) => !v)}
+              className={`pointer-events-auto rounded-full border px-3 py-1.5 text-xs shadow-lg backdrop-blur transition-colors ${
+                showMarkers
+                  ? "border-channel/60 bg-channel/20 text-foreground"
+                  : "border-line bg-surface/95 text-fog hover:border-channel"
+              }`}
+            >
+              {t("markers")}
             </button>
 
             <button
@@ -136,13 +160,12 @@ export default function AtlasPage() {
                 className={`h-2 w-2 rounded-full ${showRobustOnly ? "bg-flag" : "bg-fog/50"}`}
                 aria-hidden
               />
-              Robust hotspots only
+              {t("robustOnly")}
             </button>
           </div>
 
           <p className="pointer-events-none absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-background/95 via-background/80 to-transparent pb-16 pl-3 pr-20 pt-8 text-[10px] leading-relaxed text-fog sm:pb-8 sm:pl-4 sm:pr-24 sm:text-[11px]">
-            Screening-grade, not design-grade. Real pipeline output, every layer cited in
-            data/SOURCES.md. Verify against field survey.
+            {t("disclaimer")}
           </p>
         </div>
       </div>

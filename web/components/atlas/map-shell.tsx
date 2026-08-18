@@ -56,10 +56,14 @@ export function MapShell({
   showRobustOnly = false,
   terrain3d = false,
   zoningOverlay = false,
+  showMarkers = true,
+  lang = "en",
 }: {
   showRobustOnly?: boolean;
   terrain3d?: boolean;
   zoningOverlay?: boolean;
+  showMarkers?: boolean;
+  lang?: "en" | "hi";
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<MapLibreMap | null>(null);
@@ -181,6 +185,113 @@ export function MapShell({
         });
         map.moveLayer(HOTSPOT_LAYER_ID, RISK_LAYER_ID);
 
+        // Corridor extent: termini, 5 km chainage ticks, hotspot callouts.
+        // Labels carry both languages as separate properties so switching
+        // language is a paint/layout change, not a data refetch.
+        try {
+          const mres = await fetch("/data/corridor_markers.geojson");
+          if (mres.ok) {
+            map.addSource("markers", { type: "geojson", data: await mres.json() });
+
+            map.addLayer({
+              id: "km-dot",
+              type: "circle",
+              source: "markers",
+              filter: ["==", ["get", "kind"], "km"],
+              paint: {
+                "circle-radius": 3.5,
+                "circle-color": "#0b1220",
+                "circle-stroke-color": "#e7ecef",
+                "circle-stroke-width": 1.5,
+              },
+            });
+            map.addLayer({
+              id: "km-label",
+              type: "symbol",
+              source: "markers",
+              filter: ["==", ["get", "kind"], "km"],
+              layout: {
+                "text-field": ["get", "label_en"],
+                "text-size": 10,
+                "text-offset": [0, -1.1],
+                "text-allow-overlap": false,
+              },
+              paint: { "text-color": "#e7ecef", "text-halo-color": "#0b1220", "text-halo-width": 1.4 },
+            });
+
+            map.addLayer({
+              id: "hotspot-dot",
+              type: "circle",
+              source: "markers",
+              filter: ["==", ["get", "kind"], "hotspot"],
+              paint: {
+                "circle-radius": 6,
+                "circle-color": "#e8a23d",
+                "circle-opacity": 0.9,
+                "circle-stroke-color": "#0b1220",
+                "circle-stroke-width": 1.5,
+              },
+            });
+
+            map.addLayer({
+              id: "terminus-dot",
+              type: "circle",
+              source: "markers",
+              filter: ["==", ["get", "kind"], "terminus"],
+              paint: {
+                "circle-radius": 8,
+                "circle-color": "#2fa8a0",
+                "circle-stroke-color": "#ffffff",
+                "circle-stroke-width": 2.5,
+              },
+            });
+            map.addLayer({
+              id: "terminus-label",
+              type: "symbol",
+              source: "markers",
+              filter: ["==", ["get", "kind"], "terminus"],
+              layout: {
+                "text-field": ["get", "label_en"],
+                "text-size": 12,
+                "text-offset": [0, -1.8],
+                "text-allow-overlap": true,
+                "text-font": ["Open Sans Bold", "Arial Unicode MS Bold"],
+              },
+              paint: { "text-color": "#ffffff", "text-halo-color": "#0b1220", "text-halo-width": 2 },
+            });
+
+            // Flow direction: repeating arrows along the corridor itself.
+            map.addLayer({
+              id: "flow-arrows",
+              type: "symbol",
+              source: RISK_SOURCE_ID,
+              layout: {
+                "symbol-placement": "line",
+                "symbol-spacing": 120,
+                "text-field": "▸",
+                "text-size": 14,
+                "text-keep-upright": false,
+                "text-allow-overlap": false,
+              },
+              paint: { "text-color": "#e7ecef", "text-opacity": 0.65, "text-halo-color": "#0b1220", "text-halo-width": 1 },
+            });
+
+            map.on("click", "hotspot-dot", (e) => {
+              const f = e.features?.[0];
+              if (!f) return;
+              const p = f.properties as Record<string, string>;
+              new Popup({ closeButton: true })
+                .setLngLat(e.lngLat)
+                .setHTML(
+                  `<div style="font-family:var(--font-sans,sans-serif)"><strong>${p.label_en}</strong><br/><span style="color:var(--fog);font-size:12px">${p.sub_en}</span></div>`,
+                )
+                .addTo(map);
+            });
+          }
+        } catch {
+          /* markers are optional */
+        }
+
         const popup = new Popup({ closeButton: true, maxWidth: "300px" });
         map.on("click", RISK_LAYER_ID, (e) => {
           const feature = e.features?.[0];
@@ -219,6 +330,20 @@ export function MapShell({
       }
     };
   }, []);
+
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map || status !== "loaded") return;
+    const field = lang === "hi" ? "label_hi" : "label_en";
+    for (const id of ["km-label", "terminus-label"]) {
+      if (map.getLayer(id)) map.setLayoutProperty(id, "text-field", ["get", field]);
+    }
+    for (const id of ["km-dot", "km-label", "hotspot-dot", "terminus-dot", "terminus-label", "flow-arrows"]) {
+      if (map.getLayer(id)) {
+        map.setLayoutProperty(id, "visibility", showMarkers ? "visible" : "none");
+      }
+    }
+  }, [lang, showMarkers, status]);
 
   useEffect(() => {
     const map = mapRef.current;
