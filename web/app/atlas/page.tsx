@@ -54,6 +54,7 @@ function StatBar({ analytics }: { analytics: Analytics | null }) {
 export default function AtlasPage() {
   const [showRobustOnly, setShowRobustOnly] = useState(false);
   const [railOpen, setRailOpen] = useState(false);
+  const [terrain3d, setTerrain3d] = useState(false);
   const analytics = useJson<Analytics>("/data/analytics.json");
 
   return (
@@ -81,7 +82,7 @@ export default function AtlasPage() {
         )}
 
         <div className="relative min-h-0 min-w-0 flex-1">
-          <MapShell showRobustOnly={showRobustOnly} />
+          <MapShell showRobustOnly={showRobustOnly} terrain3d={terrain3d} />
 
           {/* Controls float over the map, wrapping instead of overlapping. */}
           <div className="pointer-events-none absolute inset-x-0 top-0 z-10 flex flex-wrap items-start justify-between gap-2 p-3">
@@ -95,10 +96,23 @@ export default function AtlasPage() {
 
             <button
               type="button"
+              aria-pressed={terrain3d}
+              onClick={() => setTerrain3d((v) => !v)}
+              className={`pointer-events-auto ml-auto rounded-full border px-3 py-1.5 text-xs shadow-lg backdrop-blur transition-colors ${
+                terrain3d
+                  ? "border-channel/60 bg-channel/20 text-foreground"
+                  : "border-line bg-surface/95 text-fog hover:border-channel"
+              }`}
+            >
+              3D terrain
+            </button>
+
+            <button
+              type="button"
               role="switch"
               aria-checked={showRobustOnly}
               onClick={() => setShowRobustOnly((v) => !v)}
-              className={`pointer-events-auto ml-auto flex items-center gap-2 rounded-full border px-3 py-1.5 text-xs shadow-lg backdrop-blur transition-colors ${
+              className={`pointer-events-auto flex items-center gap-2 rounded-full border px-3 py-1.5 text-xs shadow-lg backdrop-blur transition-colors ${
                 showRobustOnly
                   ? "border-flag/60 bg-flag/20 text-foreground"
                   : "border-line bg-surface/95 text-fog hover:border-channel"

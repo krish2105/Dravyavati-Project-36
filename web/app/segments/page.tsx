@@ -1,6 +1,7 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { Suspense, useMemo } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import { SiteHeader } from "@/components/site-header";
 import { useJson, type Analytics, type ProfilePoint, BAND_COLOR } from "@/lib/analytics";
 
@@ -32,15 +33,26 @@ function ScoreBar({ label, value, max = 3 }: { label: string; value: number; max
   );
 }
 
-export default function SegmentsPage() {
+function SegmentsInner() {
   const analytics = useJson<Analytics>("/data/analytics.json");
-  const [selected, setSelected] = useState<number | null>(null);
+  const router = useRouter();
+  const params = useSearchParams();
+
+  // Chainage lives in the URL rather than component state so a specific
+  // corridor can be linked to directly, which is the whole point of an
+  // inspector someone is meant to send to a colleague.
+  const chParam = Number(params.get("ch"));
+  const selected = Number.isFinite(chParam) && chParam > 0 ? chParam : null;
+  const setSelectedChainage = (m: number) =>
+    router.replace(`/segments?ch=${m}`, { scroll: false });
 
   const corridors = analytics?.hotspot_corridors ?? [];
   const active = useMemo(() => {
     if (!analytics) return null;
-    const id = selected ?? corridors[0]?.id;
-    return corridors.find((c) => c.id === id) ?? null;
+    if (selected === null) return corridors[0] ?? null;
+    return (
+      corridors.find((c) => selected >= c.start_m && selected < c.end_m) ?? corridors[0] ?? null
+    );
   }, [analytics, selected, corridors]);
 
   const segmentsInActive: ProfilePoint[] = useMemo(() => {
@@ -74,7 +86,7 @@ export default function SegmentsPage() {
                   <button
                     key={c.id}
                     type="button"
-                    onClick={() => setSelected(c.id)}
+                    onClick={() => setSelectedChainage(c.start_m)}
                     className={`shrink-0 rounded-xl border p-3 text-left transition-colors lg:w-full ${
                       isActive
                         ? "border-flag/60 bg-flag/10"
@@ -172,5 +184,15 @@ export default function SegmentsPage() {
         )}
       </main>
     </>
+  );
+}
+
+export default function SegmentsPage() {
+  return (
+    <Suspense
+      fallback={<p className="py-16 text-center font-mono text-xs text-fog">Loading…</p>}
+    >
+      <SegmentsInner />
+    </Suspense>
   );
 }

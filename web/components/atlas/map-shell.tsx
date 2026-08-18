@@ -52,7 +52,13 @@ function popupHtml(props: Record<string, unknown>): string {
   `;
 }
 
-export function MapShell({ showRobustOnly = false }: { showRobustOnly?: boolean }) {
+export function MapShell({
+  showRobustOnly = false,
+  terrain3d = false,
+}: {
+  showRobustOnly?: boolean;
+  terrain3d?: boolean;
+}) {
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<MapLibreMap | null>(null);
   const [status, setStatus] = useState<"loading" | "loaded" | "empty" | "error">("loading");
@@ -70,6 +76,17 @@ export function MapShell({ showRobustOnly = false }: { showRobustOnly?: boolean 
             tiles: ["https://tile.openstreetmap.org/{z}/{x}/{y}.png"],
             tileSize: 256,
             attribution: "&copy; OpenStreetMap contributors",
+          },
+          // Public terrarium-encoded DEM, no auth. Used only for the 3D
+          // view; MapLibre renders terrain natively, so this avoids pulling
+          // in a whole second rendering library for one feature.
+          terrainDem: {
+            type: "raster-dem",
+            tiles: ["https://s3.amazonaws.com/elevation-tiles-prod/terrarium/{z}/{x}/{y}.png"],
+            tileSize: 256,
+            encoding: "terrarium",
+            maxzoom: 13,
+            attribution: "Elevation: Mapzen / AWS Terrain Tiles",
           },
         },
         layers: [{ id: "osm", type: "raster", source: "osm" }],
@@ -170,6 +187,21 @@ export function MapShell({ showRobustOnly = false }: { showRobustOnly?: boolean 
       }
     };
   }, []);
+
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map || status !== "loaded") return;
+    // Exaggeration is deliberately mild: this terrain is ~30 m data over
+    // gently sloping ground, and a dramatic vertical stretch would imply
+    // relief the source cannot actually resolve.
+    if (terrain3d) {
+      map.setTerrain({ source: "terrainDem", exaggeration: 1.4 });
+      map.easeTo({ pitch: 62, bearing: -18, duration: 900 });
+    } else {
+      map.setTerrain(null);
+      map.easeTo({ pitch: 0, bearing: 0, duration: 700 });
+    }
+  }, [terrain3d, status]);
 
   useEffect(() => {
     const map = mapRef.current;

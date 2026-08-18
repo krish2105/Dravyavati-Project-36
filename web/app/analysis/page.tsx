@@ -6,6 +6,7 @@ import { ChainageProfile } from "@/components/charts/chainage-profile";
 import { CooccurrenceMatrix } from "@/components/charts/cooccurrence-matrix";
 import { ImportanceTornado } from "@/components/charts/importance-tornado";
 import { HotspotTable } from "@/components/atlas/hotspot-table";
+import { WeightStudio } from "@/components/charts/weight-studio";
 import { useJson, type Analytics, type FeatureImportance } from "@/lib/analytics";
 
 const ease = [0.16, 1, 0.3, 1] as const;
@@ -86,6 +87,14 @@ export default function AnalysisPage() {
                 )}
               </Panel>
             </div>
+
+            <Panel
+              title="Reweighting studio"
+              subtitle="The pack requires weights to be configurable rather than hardcoded. Move any weight and the composite, banding and ranking recompute live in the browser."
+              delay={0.12}
+            >
+              <WeightStudio />
+            </Panel>
 
             <Panel
               title="Constraint co-occurrence"
