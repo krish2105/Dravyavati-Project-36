@@ -1,0 +1,4101 @@
+{
+ "generated_from": "data/processed/chainage_risk.parquet",
+ "corridor": {
+  "length_km": 41.24,
+  "segments": 413,
+  "constraint_count": 13
+ },
+ "severity": {
+  "low": 287,
+  "medium": 84,
+  "high": 42
+ },
+ "robust_hotspots": 21,
+ "anomalies": 21,
+ "uncertainty": {
+  "mean_ci_width": 0.3974
+ },
+ "crossings": {
+  "railway": 2,
+  "major_arterial": 7,
+  "dam_check_structure": 21,
+  "eht_line": 10,
+  "cross_drainage": 23
+ },
+ "metro": {
+  "none": 374,
+  "proposed": 25,
+  "construction": 8,
+  "operational": 6
+ },
+ "irc86": {
+  "min_radius_m": 150,
+  "segments_below": 12
+ },
+ "land": {
+  "mean_unbuilt_pct": 99.54,
+  "buildings_within_100m": 359,
+  "segments_with_buildings": 55
+ },
+ "cooccurrence": {
+  "labels": [
+   "Railway crossing",
+   "Metro interface",
+   "Existing elevated structure",
+   "Major arterial crossing",
+   "Restricted / military area",
+   "Entry\u2013exit feasibility",
+   "Curve severity",
+   "EHT line crossing",
+   "Dam / check structure",
+   "Land availability",
+   "Habitation proximity",
+   "Built-up growth since 2018",
+   "Hydraulic sensitivity"
+  ],
+  "matrix": [
+   [
+    9,
+    0,
+    4,
+    0,
+    0,
+    0,
+    0,
+    4,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   [
+    0,
+    39,
+    15,
+    12,
+    0,
+    0,
+    2,
+    0,
+    4,
+    0,
+    0,
+    6,
+    0
+   ],
+   [
+    4,
+    15,
+    90,
+    19,
+    0,
+    9,
+    5,
+    31,
+    14,
+    0,
+    0,
+    15,
+    16
+   ],
+   [
+    0,
+    12,
+    19,
+    19,
+    0,
+    0,
+    1,
+    4,
+    3,
+    0,
+    0,
+    5,
+    2
+   ],
+   [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   [
+    0,
+    0,
+    9,
+    0,
+    0,
+    85,
+    1,
+    5,
+    9,
+    0,
+    0,
+    22,
+    85
+   ],
+   [
+    0,
+    2,
+    5,
+    1,
+    0,
+    1,
+    12,
+    1,
+    1,
+    0,
+    0,
+    1,
+    2
+   ],
+   [
+    4,
+    0,
+    31,
+    4,
+    0,
+    5,
+    1,
+    66,
+    13,
+    0,
+    0,
+    24,
+    22
+   ],
+   [
+    0,
+    4,
+    14,
+    3,
+    0,
+    9,
+    1,
+    13,
+    57,
+    0,
+    0,
+    7,
+    25
+   ],
+   [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    8,
+    0,
+    0
+   ],
+   [
+    0,
+    6,
+    15,
+    5,
+    0,
+    22,
+    1,
+    24,
+    7,
+    0,
+    0,
+    88,
+    48
+   ],
+   [
+    0,
+    0,
+    16,
+    2,
+    0,
+    85,
+    2,
+    22,
+    25,
+    0,
+    0,
+    48,
+    151
+   ]
+  ]
+ },
+ "hotspot_corridors": [
+  {
+   "id": 2,
+   "start_m": 27900,
+   "end_m": 28400,
+   "segments": 4,
+   "mean_composite": 1.043,
+   "top_drivers": [
+    {
+     "label": "Existing elevated structure",
+     "mean_score": 3.0
+    },
+    {
+     "label": "EHT line crossing",
+     "mean_score": 3.0
+    },
+    {
+     "label": "Built-up growth since 2018",
+     "mean_score": 2.75
+    }
+   ]
+  },
+  {
+   "id": 0,
+   "start_m": 2400,
+   "end_m": 2700,
+   "segments": 3,
+   "mean_composite": 1.026,
+   "top_drivers": [
+    {
+     "label": "Metro interface",
+     "mean_score": 3.0
+    },
+    {
+     "label": "Existing elevated structure",
+     "mean_score": 3.0
+    },
+    {
+     "label": "Major arterial crossing",
+     "mean_score": 3.0
+    }
+   ]
+  },
+  {
+   "id": 4,
+   "start_m": 33600,
+   "end_m": 33900,
+   "segments": 3,
+   "mean_composite": 0.898,
+   "top_drivers": [
+    {
+     "label": "EHT line crossing",
+     "mean_score": 3.0
+    },
+    {
+     "label": "Dam / check structure",
+     "mean_score": 3.0
+    },
+    {
+     "label": "Hydraulic sensitivity",
+     "mean_score": 2.68
+    }
+   ]
+  },
+  {
+   "id": 1,
+   "start_m": 7900,
+   "end_m": 8100,
+   "segments": 2,
+   "mean_composite": 0.884,
+   "top_drivers": [
+    {
+     "label": "Existing elevated structure",
+     "mean_score": 3.0
+    },
+    {
+     "label": "Major arterial crossing",
+     "mean_score": 3.0
+    },
+    {
+     "label": "EHT line crossing",
+     "mean_score": 3.0
+    }
+   ]
+  },
+  {
+   "id": 3,
+   "start_m": 30500,
+   "end_m": 30800,
+   "segments": 2,
+   "mean_composite": 0.87,
+   "top_drivers": [
+    {
+     "label": "EHT line crossing",
+     "mean_score": 3.0
+    },
+    {
+     "label": "Dam / check structure",
+     "mean_score": 3.0
+    },
+    {
+     "label": "Hydraulic sensitivity",
+     "mean_score": 2.31
+    }
+   ]
+  },
+  {
+   "id": 5,
+   "start_m": 41100,
+   "end_m": 41300,
+   "segments": 2,
+   "mean_composite": 0.615,
+   "top_drivers": [
+    {
+     "label": "Existing elevated structure",
+     "mean_score": 3.0
+    },
+    {
+     "label": "Hydraulic sensitivity",
+     "mean_score": 3.0
+    },
+    {
+     "label": "Entry\u2013exit feasibility",
+     "mean_score": 2.0
+    }
+   ]
+  }
+ ],
+ "profile": [
+  {
+   "chainage_m": 0,
+   "composite": 0.2308,
+   "p05": 0.2546,
+   "p95": 0.6011,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 100,
+   "composite": 0.2308,
+   "p05": 0.2529,
+   "p95": 0.6082,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 200,
+   "composite": 0.0,
+   "p05": 0.0557,
+   "p95": 0.3777,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 300,
+   "composite": 0.0,
+   "p05": 0.0524,
+   "p95": 0.3785,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 400,
+   "composite": 0.0256,
+   "p05": 0.0602,
+   "p95": 0.3894,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 500,
+   "composite": 0.0256,
+   "p05": 0.0566,
+   "p95": 0.3962,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 600,
+   "composite": 0.0256,
+   "p05": 0.0595,
+   "p95": 0.3919,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 700,
+   "composite": 0.3333,
+   "p05": 0.2962,
+   "p95": 0.7015,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 800,
+   "composite": 0.3341,
+   "p05": 0.2992,
+   "p95": 0.7006,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 900,
+   "composite": 0.2572,
+   "p05": 0.2618,
+   "p95": 0.6334,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 1000,
+   "composite": 0.3341,
+   "p05": 0.2979,
+   "p95": 0.6963,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 1100,
+   "composite": 0.3341,
+   "p05": 0.2938,
+   "p95": 0.6899,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 1200,
+   "composite": 0.2572,
+   "p05": 0.2639,
+   "p95": 0.6267,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 1300,
+   "composite": 0.0264,
+   "p05": 0.0599,
+   "p95": 0.3973,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 1400,
+   "composite": 0.0264,
+   "p05": 0.0592,
+   "p95": 0.3977,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 1500,
+   "composite": 0.0264,
+   "p05": 0.0579,
+   "p95": 0.3966,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 1600,
+   "composite": 0.0264,
+   "p05": 0.0602,
+   "p95": 0.402,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 1700,
+   "composite": 0.3341,
+   "p05": 0.2941,
+   "p95": 0.6972,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 1800,
+   "composite": 0.0264,
+   "p05": 0.0563,
+   "p95": 0.3958,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 1900,
+   "composite": 0.0264,
+   "p05": 0.0603,
+   "p95": 0.3967,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 2000,
+   "composite": 0.0264,
+   "p05": 0.0583,
+   "p95": 0.3926,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 2100,
+   "composite": 0.0264,
+   "p05": 0.0588,
+   "p95": 0.3932,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 2200,
+   "composite": 0.3341,
+   "p05": 0.3286,
+   "p95": 0.686,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 2300,
+   "composite": 0.7956,
+   "p05": 0.7568,
+   "p95": 1.1433,
+   "band": "high",
+   "robust": false,
+   "anomaly": true
+  },
+  {
+   "chainage_m": 2400,
+   "composite": 1.0264,
+   "p05": 0.9663,
+   "p95": 1.3683,
+   "band": "high",
+   "robust": true,
+   "anomaly": true
+  },
+  {
+   "chainage_m": 2500,
+   "composite": 1.0264,
+   "p05": 0.9516,
+   "p95": 1.3549,
+   "band": "high",
+   "robust": true,
+   "anomaly": true
+  },
+  {
+   "chainage_m": 2600,
+   "composite": 1.0264,
+   "p05": 0.9501,
+   "p95": 1.3479,
+   "band": "high",
+   "robust": true,
+   "anomaly": true
+  },
+  {
+   "chainage_m": 2700,
+   "composite": 0.7956,
+   "p05": 0.7467,
+   "p95": 1.152,
+   "band": "high",
+   "robust": false,
+   "anomaly": true
+  },
+  {
+   "chainage_m": 2800,
+   "composite": 0.411,
+   "p05": 0.3594,
+   "p95": 0.749,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 2900,
+   "composite": 0.411,
+   "p05": 0.3474,
+   "p95": 0.7446,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 3000,
+   "composite": 0.1802,
+   "p05": 0.1436,
+   "p95": 0.5292,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 3100,
+   "composite": 0.1802,
+   "p05": 0.1401,
+   "p95": 0.529,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 3200,
+   "composite": 0.1802,
+   "p05": 0.1408,
+   "p95": 0.5323,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 3300,
+   "composite": 0.1802,
+   "p05": 0.1409,
+   "p95": 0.5267,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 3400,
+   "composite": 0.1802,
+   "p05": 0.1447,
+   "p95": 0.5232,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 3500,
+   "composite": 0.1802,
+   "p05": 0.1394,
+   "p95": 0.5263,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 3600,
+   "composite": 0.1802,
+   "p05": 0.1384,
+   "p95": 0.5271,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 3700,
+   "composite": 0.1802,
+   "p05": 0.148,
+   "p95": 0.523,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 3800,
+   "composite": 0.411,
+   "p05": 0.2924,
+   "p95": 0.7023,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 3900,
+   "composite": 0.7956,
+   "p05": 0.6632,
+   "p95": 1.0978,
+   "band": "high",
+   "robust": false,
+   "anomaly": true
+  },
+  {
+   "chainage_m": 4000,
+   "composite": 0.7956,
+   "p05": 0.667,
+   "p95": 1.0909,
+   "band": "high",
+   "robust": false,
+   "anomaly": true
+  },
+  {
+   "chainage_m": 4100,
+   "composite": 0.7956,
+   "p05": 0.6654,
+   "p95": 1.0919,
+   "band": "high",
+   "robust": false,
+   "anomaly": true
+  },
+  {
+   "chainage_m": 4200,
+   "composite": 0.5648,
+   "p05": 0.4486,
+   "p95": 0.8722,
+   "band": "medium",
+   "robust": false,
+   "anomaly": true
+  },
+  {
+   "chainage_m": 4300,
+   "composite": 0.2572,
+   "p05": 0.2086,
+   "p95": 0.5714,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 4400,
+   "composite": 0.3341,
+   "p05": 0.2414,
+   "p95": 0.6381,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 4500,
+   "composite": 0.3341,
+   "p05": 0.2402,
+   "p95": 0.6419,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 4600,
+   "composite": 0.1033,
+   "p05": 0.0914,
+   "p95": 0.4637,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 4700,
+   "composite": 0.1033,
+   "p05": 0.0855,
+   "p95": 0.4623,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 4800,
+   "composite": 0.1033,
+   "p05": 0.1094,
+   "p95": 0.4637,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 4900,
+   "composite": 0.1033,
+   "p05": 0.115,
+   "p95": 0.4699,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 5000,
+   "composite": 0.1033,
+   "p05": 0.1105,
+   "p95": 0.4681,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 5100,
+   "composite": 0.1033,
+   "p05": 0.1146,
+   "p95": 0.4625,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 5200,
+   "composite": 0.1802,
+   "p05": 0.1442,
+   "p95": 0.531,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 5300,
+   "composite": 0.2572,
+   "p05": 0.1941,
+   "p95": 0.5945,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 5400,
+   "composite": 0.1802,
+   "p05": 0.1416,
+   "p95": 0.5329,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 5500,
+   "composite": 0.6418,
+   "p05": 0.5073,
+   "p95": 0.9312,
+   "band": "medium",
+   "robust": true,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 5600,
+   "composite": 0.5648,
+   "p05": 0.4497,
+   "p95": 0.864,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 5700,
+   "composite": 0.5648,
+   "p05": 0.4532,
+   "p95": 0.8657,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 5800,
+   "composite": 0.3341,
+   "p05": 0.2443,
+   "p95": 0.6278,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 5900,
+   "composite": 0.1033,
+   "p05": 0.0893,
+   "p95": 0.4646,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 6000,
+   "composite": 0.1033,
+   "p05": 0.0878,
+   "p95": 0.4721,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 6100,
+   "composite": 0.0264,
+   "p05": 0.0607,
+   "p95": 0.3957,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 6200,
+   "composite": 0.0264,
+   "p05": 0.0615,
+   "p95": 0.4018,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 6300,
+   "composite": 0.2572,
+   "p05": 0.2629,
+   "p95": 0.6291,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 6400,
+   "composite": 0.6418,
+   "p05": 0.5229,
+   "p95": 0.9457,
+   "band": "medium",
+   "robust": true,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 6500,
+   "composite": 0.411,
+   "p05": 0.3091,
+   "p95": 0.7167,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 6600,
+   "composite": 0.4215,
+   "p05": 0.3114,
+   "p95": 0.7197,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 6700,
+   "composite": 0.5766,
+   "p05": 0.4575,
+   "p95": 0.8755,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 6800,
+   "composite": 0.3458,
+   "p05": 0.2976,
+   "p95": 0.7051,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 6900,
+   "composite": 0.7304,
+   "p05": 0.6354,
+   "p95": 1.0369,
+   "band": "medium",
+   "robust": false,
+   "anomaly": true
+  },
+  {
+   "chainage_m": 7000,
+   "composite": 0.4997,
+   "p05": 0.4223,
+   "p95": 0.8072,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 7100,
+   "composite": 0.5766,
+   "p05": 0.4963,
+   "p95": 0.881,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 7200,
+   "composite": 0.5766,
+   "p05": 0.4927,
+   "p95": 0.8817,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 7300,
+   "composite": 0.5766,
+   "p05": 0.4928,
+   "p95": 0.876,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 7400,
+   "composite": 0.5766,
+   "p05": 0.4584,
+   "p95": 0.8691,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 7500,
+   "composite": 0.3458,
+   "p05": 0.2431,
+   "p95": 0.6465,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 7600,
+   "composite": 0.3458,
+   "p05": 0.2428,
+   "p95": 0.6481,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 7700,
+   "composite": 0.4227,
+   "p05": 0.3053,
+   "p95": 0.7104,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 7800,
+   "composite": 0.4227,
+   "p05": 0.3007,
+   "p95": 0.7123,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 7900,
+   "composite": 0.8843,
+   "p05": 0.7344,
+   "p95": 1.1652,
+   "band": "high",
+   "robust": true,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 8000,
+   "composite": 0.8843,
+   "p05": 0.7299,
+   "p95": 1.1631,
+   "band": "high",
+   "robust": true,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 8100,
+   "composite": 0.5766,
+   "p05": 0.4534,
+   "p95": 0.8797,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 8200,
+   "composite": 0.2689,
+   "p05": 0.2143,
+   "p95": 0.5774,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 8300,
+   "composite": 0.3458,
+   "p05": 0.2815,
+   "p95": 0.6885,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 8400,
+   "composite": 0.3458,
+   "p05": 0.2849,
+   "p95": 0.6906,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 8500,
+   "composite": 0.3458,
+   "p05": 0.2819,
+   "p95": 0.6863,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 8600,
+   "composite": 0.115,
+   "p05": 0.0908,
+   "p95": 0.4678,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 8700,
+   "composite": 0.115,
+   "p05": 0.0895,
+   "p95": 0.4763,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 8800,
+   "composite": 0.4227,
+   "p05": 0.3577,
+   "p95": 0.7698,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 8900,
+   "composite": 0.5766,
+   "p05": 0.4951,
+   "p95": 0.9091,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 9000,
+   "composite": 0.6076,
+   "p05": 0.5096,
+   "p95": 0.9377,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 9100,
+   "composite": 0.2999,
+   "p05": 0.2649,
+   "p95": 0.6532,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 9200,
+   "composite": 0.5307,
+   "p05": 0.4434,
+   "p95": 0.8347,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 9300,
+   "composite": 0.7615,
+   "p05": 0.6305,
+   "p95": 1.0434,
+   "band": "high",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 9400,
+   "composite": 0.7615,
+   "p05": 0.6325,
+   "p95": 1.0473,
+   "band": "high",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 9500,
+   "composite": 0.5307,
+   "p05": 0.4194,
+   "p95": 0.8187,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 9600,
+   "composite": 0.1461,
+   "p05": 0.1101,
+   "p95": 0.4984,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 9700,
+   "composite": 0.1461,
+   "p05": 0.1036,
+   "p95": 0.4968,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 9800,
+   "composite": 0.3768,
+   "p05": 0.3001,
+   "p95": 0.7036,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 9900,
+   "composite": 0.6076,
+   "p05": 0.4991,
+   "p95": 0.9289,
+   "band": "medium",
+   "robust": false,
+   "anomaly": true
+  },
+  {
+   "chainage_m": 10000,
+   "composite": 0.6076,
+   "p05": 0.5272,
+   "p95": 0.9442,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 10100,
+   "composite": 0.9153,
+   "p05": 0.808,
+   "p95": 1.2449,
+   "band": "high",
+   "robust": false,
+   "anomaly": true
+  },
+  {
+   "chainage_m": 10200,
+   "composite": 0.9153,
+   "p05": 0.8151,
+   "p95": 1.2561,
+   "band": "high",
+   "robust": false,
+   "anomaly": true
+  },
+  {
+   "chainage_m": 10300,
+   "composite": 0.6845,
+   "p05": 0.5866,
+   "p95": 1.0213,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 10400,
+   "composite": 0.3768,
+   "p05": 0.3446,
+   "p95": 0.7325,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 10500,
+   "composite": 0.1461,
+   "p05": 0.1452,
+   "p95": 0.5119,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 10600,
+   "composite": 0.1461,
+   "p05": 0.1465,
+   "p95": 0.5064,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 10700,
+   "composite": 0.3825,
+   "p05": 0.3423,
+   "p95": 0.7253,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 10800,
+   "composite": 0.3056,
+   "p05": 0.2668,
+   "p95": 0.6589,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 10900,
+   "composite": 0.3827,
+   "p05": 0.2686,
+   "p95": 0.6847,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 11000,
+   "composite": 0.3827,
+   "p05": 0.2621,
+   "p95": 0.6766,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 11100,
+   "composite": 0.3827,
+   "p05": 0.2634,
+   "p95": 0.6807,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 11200,
+   "composite": 0.7673,
+   "p05": 0.6417,
+   "p95": 1.0472,
+   "band": "high",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 11300,
+   "composite": 0.7673,
+   "p05": 0.6347,
+   "p95": 1.0509,
+   "band": "high",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 11400,
+   "composite": 0.7673,
+   "p05": 0.6384,
+   "p95": 1.0542,
+   "band": "high",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 11500,
+   "composite": 0.3058,
+   "p05": 0.2335,
+   "p95": 0.6224,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 11600,
+   "composite": 0.3058,
+   "p05": 0.2287,
+   "p95": 0.6154,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 11700,
+   "composite": 0.6134,
+   "p05": 0.4802,
+   "p95": 0.9077,
+   "band": "medium",
+   "robust": true,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 11800,
+   "composite": 0.6904,
+   "p05": 0.5537,
+   "p95": 0.9801,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 11900,
+   "composite": 0.2288,
+   "p05": 0.1784,
+   "p95": 0.5826,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 12000,
+   "composite": 0.2288,
+   "p05": 0.182,
+   "p95": 0.589,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 12100,
+   "composite": 0.2288,
+   "p05": 0.1792,
+   "p95": 0.5892,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 12200,
+   "composite": 0.3827,
+   "p05": 0.3562,
+   "p95": 0.7458,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 12300,
+   "composite": 0.3827,
+   "p05": 0.3556,
+   "p95": 0.7525,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 12400,
+   "composite": 0.6134,
+   "p05": 0.5551,
+   "p95": 0.9515,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 12500,
+   "composite": 0.3827,
+   "p05": 0.3366,
+   "p95": 0.731,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 12600,
+   "composite": 0.3058,
+   "p05": 0.2857,
+   "p95": 0.6707,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 12700,
+   "composite": 0.2288,
+   "p05": 0.1754,
+   "p95": 0.576,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 12800,
+   "composite": 0.4596,
+   "p05": 0.3727,
+   "p95": 0.7847,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 12900,
+   "composite": 0.3827,
+   "p05": 0.3002,
+   "p95": 0.7212,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 13000,
+   "composite": 0.1519,
+   "p05": 0.109,
+   "p95": 0.5098,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 13100,
+   "composite": 0.1519,
+   "p05": 0.1136,
+   "p95": 0.5117,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 13200,
+   "composite": 0.2288,
+   "p05": 0.161,
+   "p95": 0.5707,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 13300,
+   "composite": 0.2288,
+   "p05": 0.167,
+   "p95": 0.5758,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 13400,
+   "composite": 0.2288,
+   "p05": 0.1686,
+   "p95": 0.5769,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 13500,
+   "composite": 0.2706,
+   "p05": 0.1902,
+   "p95": 0.6073,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 13600,
+   "composite": 0.1936,
+   "p05": 0.1343,
+   "p95": 0.5321,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 13700,
+   "composite": 0.5015,
+   "p05": 0.3903,
+   "p95": 0.8265,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 13800,
+   "composite": 0.4246,
+   "p05": 0.353,
+   "p95": 0.7567,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 13900,
+   "composite": 0.4246,
+   "p05": 0.347,
+   "p95": 0.7534,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 14000,
+   "composite": 0.2707,
+   "p05": 0.1927,
+   "p95": 0.6105,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 14100,
+   "composite": 0.2707,
+   "p05": 0.1948,
+   "p95": 0.6109,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 14200,
+   "composite": 0.1938,
+   "p05": 0.1618,
+   "p95": 0.542,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 14300,
+   "composite": 0.1938,
+   "p05": 0.1351,
+   "p95": 0.5485,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 14400,
+   "composite": 0.1938,
+   "p05": 0.1382,
+   "p95": 0.5451,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 14500,
+   "composite": 0.4246,
+   "p05": 0.3457,
+   "p95": 0.7738,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 14600,
+   "composite": 0.1938,
+   "p05": 0.1378,
+   "p95": 0.5439,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 14700,
+   "composite": 0.3476,
+   "p05": 0.2843,
+   "p95": 0.7043,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 14800,
+   "composite": 0.3476,
+   "p05": 0.3095,
+   "p95": 0.7067,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 14900,
+   "composite": 0.3476,
+   "p05": 0.3148,
+   "p95": 0.7092,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 15000,
+   "composite": 0.3476,
+   "p05": 0.3106,
+   "p95": 0.7113,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 15100,
+   "composite": 0.3476,
+   "p05": 0.3084,
+   "p95": 0.711,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 15200,
+   "composite": 0.2707,
+   "p05": 0.2446,
+   "p95": 0.6314,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 15300,
+   "composite": 0.2707,
+   "p05": 0.2508,
+   "p95": 0.6351,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 15400,
+   "composite": 0.273,
+   "p05": 0.243,
+   "p95": 0.629,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 15500,
+   "composite": 0.1191,
+   "p05": 0.1073,
+   "p95": 0.481,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 15600,
+   "composite": 0.1191,
+   "p05": 0.1082,
+   "p95": 0.4875,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 15700,
+   "composite": 0.5806,
+   "p05": 0.5255,
+   "p95": 0.937,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 15800,
+   "composite": 0.5806,
+   "p05": 0.5293,
+   "p95": 0.9445,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 15900,
+   "composite": 0.5806,
+   "p05": 0.5281,
+   "p95": 0.9334,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 16000,
+   "composite": 0.3499,
+   "p05": 0.3123,
+   "p95": 0.708,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 16100,
+   "composite": 0.3499,
+   "p05": 0.3198,
+   "p95": 0.7068,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 16200,
+   "composite": 0.4268,
+   "p05": 0.3483,
+   "p95": 0.773,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 16300,
+   "composite": 0.4268,
+   "p05": 0.3492,
+   "p95": 0.7756,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 16400,
+   "composite": 0.3499,
+   "p05": 0.3158,
+   "p95": 0.7119,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 16500,
+   "composite": 0.5806,
+   "p05": 0.5302,
+   "p95": 0.9354,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 16600,
+   "composite": 0.3499,
+   "p05": 0.3181,
+   "p95": 0.7158,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 16700,
+   "composite": 0.196,
+   "p05": 0.1413,
+   "p95": 0.5431,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 16800,
+   "composite": 0.196,
+   "p05": 0.142,
+   "p95": 0.546,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 16900,
+   "composite": 0.4417,
+   "p05": 0.3384,
+   "p95": 0.7756,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 17000,
+   "composite": 0.4417,
+   "p05": 0.3424,
+   "p95": 0.7769,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 17100,
+   "composite": 0.3648,
+   "p05": 0.2811,
+   "p95": 0.7066,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 17200,
+   "composite": 0.3648,
+   "p05": 0.2844,
+   "p95": 0.7057,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 17300,
+   "composite": 0.2878,
+   "p05": 0.2456,
+   "p95": 0.6464,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 17400,
+   "composite": 0.134,
+   "p05": 0.1203,
+   "p95": 0.4983,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 17500,
+   "composite": 0.134,
+   "p05": 0.116,
+   "p95": 0.4921,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 17600,
+   "composite": 0.134,
+   "p05": 0.1176,
+   "p95": 0.4887,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 17700,
+   "composite": 0.2109,
+   "p05": 0.1514,
+   "p95": 0.5636,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 17800,
+   "composite": 0.2878,
+   "p05": 0.2111,
+   "p95": 0.6151,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 17900,
+   "composite": 0.2878,
+   "p05": 0.208,
+   "p95": 0.6123,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 18000,
+   "composite": 0.2878,
+   "p05": 0.2163,
+   "p95": 0.6247,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 18100,
+   "composite": 0.4417,
+   "p05": 0.3353,
+   "p95": 0.7766,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 18200,
+   "composite": 0.9032,
+   "p05": 0.7684,
+   "p95": 1.2245,
+   "band": "high",
+   "robust": false,
+   "anomaly": true
+  },
+  {
+   "chainage_m": 18300,
+   "composite": 0.9032,
+   "p05": 0.785,
+   "p95": 1.232,
+   "band": "high",
+   "robust": false,
+   "anomaly": true
+  },
+  {
+   "chainage_m": 18400,
+   "composite": 0.8263,
+   "p05": 0.7073,
+   "p95": 1.1543,
+   "band": "high",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 18500,
+   "composite": 0.3648,
+   "p05": 0.2822,
+   "p95": 0.7073,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 18600,
+   "composite": 0.4417,
+   "p05": 0.3418,
+   "p95": 0.7775,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 18700,
+   "composite": 0.3648,
+   "p05": 0.2853,
+   "p95": 0.7111,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 18800,
+   "composite": 0.3648,
+   "p05": 0.2802,
+   "p95": 0.7026,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 18900,
+   "composite": 0.2878,
+   "p05": 0.2435,
+   "p95": 0.6386,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 19000,
+   "composite": 0.2912,
+   "p05": 0.2499,
+   "p95": 0.6452,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 19100,
+   "composite": 0.2912,
+   "p05": 0.2523,
+   "p95": 0.6479,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 19200,
+   "composite": 0.2912,
+   "p05": 0.2552,
+   "p95": 0.643,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 19300,
+   "composite": 0.2912,
+   "p05": 0.2431,
+   "p95": 0.6477,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 19400,
+   "composite": 0.2912,
+   "p05": 0.2492,
+   "p95": 0.6441,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 19500,
+   "composite": 0.522,
+   "p05": 0.4383,
+   "p95": 0.8495,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 19600,
+   "composite": 0.3681,
+   "p05": 0.3152,
+   "p95": 0.7076,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 19700,
+   "composite": 0.3685,
+   "p05": 0.3155,
+   "p95": 0.7073,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 19800,
+   "composite": 0.3685,
+   "p05": 0.3147,
+   "p95": 0.7078,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 19900,
+   "composite": 0.138,
+   "p05": 0.1188,
+   "p95": 0.4992,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 20000,
+   "composite": 0.138,
+   "p05": 0.1199,
+   "p95": 0.4882,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 20100,
+   "composite": 0.138,
+   "p05": 0.1189,
+   "p95": 0.497,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 20200,
+   "composite": 0.215,
+   "p05": 0.1504,
+   "p95": 0.5708,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 20300,
+   "composite": 0.2919,
+   "p05": 0.2147,
+   "p95": 0.6252,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 20400,
+   "composite": 0.2919,
+   "p05": 0.2125,
+   "p95": 0.625,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 20500,
+   "composite": 0.3688,
+   "p05": 0.2734,
+   "p95": 0.675,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 20600,
+   "composite": 0.5227,
+   "p05": 0.4236,
+   "p95": 0.8577,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 20700,
+   "composite": 0.4457,
+   "p05": 0.3697,
+   "p95": 0.7895,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 20800,
+   "composite": 0.4465,
+   "p05": 0.3649,
+   "p95": 0.7883,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 20900,
+   "composite": 0.2158,
+   "p05": 0.152,
+   "p95": 0.5576,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 21000,
+   "composite": 0.2158,
+   "p05": 0.1499,
+   "p95": 0.5571,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 21100,
+   "composite": 0.1389,
+   "p05": 0.1186,
+   "p95": 0.4893,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 21200,
+   "composite": 0.1389,
+   "p05": 0.1198,
+   "p95": 0.4949,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 21300,
+   "composite": 0.1389,
+   "p05": 0.1217,
+   "p95": 0.4973,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 21400,
+   "composite": 0.6005,
+   "p05": 0.5239,
+   "p95": 0.9327,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 21500,
+   "composite": 0.6005,
+   "p05": 0.5279,
+   "p95": 0.9344,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 21600,
+   "composite": 0.6005,
+   "p05": 0.5287,
+   "p95": 0.9365,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 21700,
+   "composite": 0.1389,
+   "p05": 0.1219,
+   "p95": 0.4938,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 21800,
+   "composite": 0.1389,
+   "p05": 0.1228,
+   "p95": 0.4906,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 21900,
+   "composite": 0.2159,
+   "p05": 0.157,
+   "p95": 0.5588,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 22000,
+   "composite": 0.4466,
+   "p05": 0.3608,
+   "p95": 0.7943,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 22100,
+   "composite": 0.2159,
+   "p05": 0.1592,
+   "p95": 0.5616,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 22200,
+   "composite": 0.3697,
+   "p05": 0.283,
+   "p95": 0.7066,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 22300,
+   "composite": 0.8312,
+   "p05": 0.7122,
+   "p95": 1.1611,
+   "band": "high",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 22400,
+   "composite": 0.8312,
+   "p05": 0.7151,
+   "p95": 1.1696,
+   "band": "high",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 22500,
+   "composite": 0.8312,
+   "p05": 0.7105,
+   "p95": 1.1672,
+   "band": "high",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 22600,
+   "composite": 0.3697,
+   "p05": 0.2867,
+   "p95": 0.7127,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 22700,
+   "composite": 0.1389,
+   "p05": 0.1193,
+   "p95": 0.4917,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 22800,
+   "composite": 0.1389,
+   "p05": 0.1205,
+   "p95": 0.4956,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 22900,
+   "composite": 0.1389,
+   "p05": 0.1199,
+   "p95": 0.4991,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 23000,
+   "composite": 0.2159,
+   "p05": 0.157,
+   "p95": 0.5625,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 23100,
+   "composite": 0.3697,
+   "p05": 0.2847,
+   "p95": 0.7013,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 23200,
+   "composite": 0.3697,
+   "p05": 0.2761,
+   "p95": 0.6972,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 23300,
+   "composite": 0.2928,
+   "p05": 0.2295,
+   "p95": 0.6388,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 23400,
+   "composite": 0.2928,
+   "p05": 0.23,
+   "p95": 0.6303,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 23500,
+   "composite": 0.2928,
+   "p05": 0.2221,
+   "p95": 0.6362,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 23600,
+   "composite": 0.2159,
+   "p05": 0.1518,
+   "p95": 0.5642,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 23700,
+   "composite": 0.2928,
+   "p05": 0.209,
+   "p95": 0.6245,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 23800,
+   "composite": 0.3697,
+   "p05": 0.2741,
+   "p95": 0.6739,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 23900,
+   "composite": 0.3038,
+   "p05": 0.2238,
+   "p95": 0.6335,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 24000,
+   "composite": 0.3038,
+   "p05": 0.2205,
+   "p95": 0.6347,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 24100,
+   "composite": 0.2269,
+   "p05": 0.1625,
+   "p95": 0.567,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 24200,
+   "composite": 0.4576,
+   "p05": 0.3829,
+   "p95": 0.7979,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 24300,
+   "composite": 0.458,
+   "p05": 0.3729,
+   "p95": 0.8082,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 24400,
+   "composite": 0.458,
+   "p05": 0.3781,
+   "p95": 0.8014,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 24500,
+   "composite": 0.2272,
+   "p05": 0.1665,
+   "p95": 0.5761,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 24600,
+   "composite": 0.2272,
+   "p05": 0.1641,
+   "p95": 0.5819,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 24700,
+   "composite": 0.3041,
+   "p05": 0.2232,
+   "p95": 0.6349,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 24800,
+   "composite": 0.2272,
+   "p05": 0.1631,
+   "p95": 0.5686,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 24900,
+   "composite": 0.1503,
+   "p05": 0.13,
+   "p95": 0.5041,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 25000,
+   "composite": 0.1503,
+   "p05": 0.1312,
+   "p95": 0.5018,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 25100,
+   "composite": 0.381,
+   "p05": 0.3362,
+   "p95": 0.7362,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 25200,
+   "composite": 0.1503,
+   "p05": 0.1314,
+   "p95": 0.5033,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 25300,
+   "composite": 0.1503,
+   "p05": 0.1289,
+   "p95": 0.5061,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 25400,
+   "composite": 0.1508,
+   "p05": 0.1309,
+   "p95": 0.5132,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 25500,
+   "composite": 0.1508,
+   "p05": 0.1293,
+   "p95": 0.5038,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 25600,
+   "composite": 0.1508,
+   "p05": 0.1306,
+   "p95": 0.5049,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 25700,
+   "composite": 0.2277,
+   "p05": 0.1698,
+   "p95": 0.5715,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 25800,
+   "composite": 0.5354,
+   "p05": 0.4486,
+   "p95": 0.8819,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 25900,
+   "composite": 0.8431,
+   "p05": 0.7206,
+   "p95": 1.1588,
+   "band": "high",
+   "robust": false,
+   "anomaly": true
+  },
+  {
+   "chainage_m": 26000,
+   "composite": 0.7662,
+   "p05": 0.6721,
+   "p95": 1.1069,
+   "band": "high",
+   "robust": false,
+   "anomaly": true
+  },
+  {
+   "chainage_m": 26100,
+   "composite": 0.3047,
+   "p05": 0.236,
+   "p95": 0.645,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 26200,
+   "composite": 0.2469,
+   "p05": 0.2148,
+   "p95": 0.5906,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 26300,
+   "composite": 0.17,
+   "p05": 0.1508,
+   "p95": 0.5191,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 26400,
+   "composite": 0.17,
+   "p05": 0.1458,
+   "p95": 0.5168,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 26500,
+   "composite": 0.17,
+   "p05": 0.1465,
+   "p95": 0.524,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 26600,
+   "composite": 0.2469,
+   "p05": 0.1847,
+   "p95": 0.5822,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 26700,
+   "composite": 0.2469,
+   "p05": 0.1795,
+   "p95": 0.58,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 26800,
+   "composite": 0.17,
+   "p05": 0.1454,
+   "p95": 0.5214,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 26900,
+   "composite": 0.1762,
+   "p05": 0.1519,
+   "p95": 0.5227,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 27000,
+   "composite": 0.1762,
+   "p05": 0.1549,
+   "p95": 0.5239,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 27100,
+   "composite": 0.4069,
+   "p05": 0.3404,
+   "p95": 0.7315,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 27200,
+   "composite": 0.4069,
+   "p05": 0.3403,
+   "p95": 0.7321,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 27300,
+   "composite": 0.4069,
+   "p05": 0.3373,
+   "p95": 0.7383,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 27400,
+   "composite": 0.1762,
+   "p05": 0.1537,
+   "p95": 0.5227,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 27500,
+   "composite": 0.1762,
+   "p05": 0.1486,
+   "p95": 0.5258,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 27600,
+   "composite": 0.1762,
+   "p05": 0.1512,
+   "p95": 0.5179,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 27700,
+   "composite": 0.7146,
+   "p05": 0.555,
+   "p95": 0.9904,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 27800,
+   "composite": 0.7928,
+   "p05": 0.6174,
+   "p95": 1.0507,
+   "band": "high",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 27900,
+   "composite": 0.9467,
+   "p05": 0.7537,
+   "p95": 1.1585,
+   "band": "high",
+   "robust": true,
+   "anomaly": true
+  },
+  {
+   "chainage_m": 28000,
+   "composite": 0.7161,
+   "p05": 0.5358,
+   "p95": 0.9361,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 28100,
+   "composite": 0.8699,
+   "p05": 0.6789,
+   "p95": 1.0912,
+   "band": "high",
+   "robust": true,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 28200,
+   "composite": 1.1007,
+   "p05": 0.899,
+   "p95": 1.3151,
+   "band": "high",
+   "robust": true,
+   "anomaly": true
+  },
+  {
+   "chainage_m": 28300,
+   "composite": 1.2545,
+   "p05": 1.042,
+   "p95": 1.4763,
+   "band": "high",
+   "robust": true,
+   "anomaly": true
+  },
+  {
+   "chainage_m": 28400,
+   "composite": 0.793,
+   "p05": 0.601,
+   "p95": 1.0375,
+   "band": "high",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 28500,
+   "composite": 0.4853,
+   "p05": 0.3796,
+   "p95": 0.8003,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 28600,
+   "composite": 0.2545,
+   "p05": 0.1886,
+   "p95": 0.5963,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 28700,
+   "composite": 0.2545,
+   "p05": 0.1897,
+   "p95": 0.5878,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 28800,
+   "composite": 0.2545,
+   "p05": 0.1922,
+   "p95": 0.5909,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 28900,
+   "composite": 0.4084,
+   "p05": 0.3616,
+   "p95": 0.7555,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 29000,
+   "composite": 0.1776,
+   "p05": 0.1531,
+   "p95": 0.5185,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 29100,
+   "composite": 0.2545,
+   "p05": 0.1838,
+   "p95": 0.5834,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 29200,
+   "composite": 0.3314,
+   "p05": 0.2504,
+   "p95": 0.6491,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 29300,
+   "composite": 0.3314,
+   "p05": 0.2456,
+   "p95": 0.6576,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 29400,
+   "composite": 0.1776,
+   "p05": 0.1529,
+   "p95": 0.5239,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 29500,
+   "composite": 0.1776,
+   "p05": 0.1482,
+   "p95": 0.5154,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 29600,
+   "composite": 0.3314,
+   "p05": 0.2482,
+   "p95": 0.6598,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 29700,
+   "composite": 0.4084,
+   "p05": 0.3022,
+   "p95": 0.7233,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 29800,
+   "composite": 0.4084,
+   "p05": 0.3018,
+   "p95": 0.7177,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 29900,
+   "composite": 0.4084,
+   "p05": 0.3014,
+   "p95": 0.7172,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 30000,
+   "composite": 0.4084,
+   "p05": 0.3014,
+   "p95": 0.7249,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 30100,
+   "composite": 0.6391,
+   "p05": 0.4619,
+   "p95": 0.8897,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 30200,
+   "composite": 0.6391,
+   "p05": 0.4626,
+   "p95": 0.8978,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 30300,
+   "composite": 0.7161,
+   "p05": 0.5191,
+   "p95": 0.9294,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 30400,
+   "composite": 0.7161,
+   "p05": 0.5207,
+   "p95": 0.9291,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 30500,
+   "composite": 0.8699,
+   "p05": 0.6664,
+   "p95": 1.1045,
+   "band": "high",
+   "robust": true,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 30600,
+   "composite": 0.6391,
+   "p05": 0.5016,
+   "p95": 0.9333,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 30700,
+   "composite": 0.8699,
+   "p05": 0.658,
+   "p95": 1.1012,
+   "band": "high",
+   "robust": true,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 30800,
+   "composite": 0.7161,
+   "p05": 0.5203,
+   "p95": 0.9339,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 30900,
+   "composite": 0.7161,
+   "p05": 0.5186,
+   "p95": 0.9302,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 31000,
+   "composite": 0.6391,
+   "p05": 0.4558,
+   "p95": 0.8991,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 31100,
+   "composite": 0.3314,
+   "p05": 0.2497,
+   "p95": 0.6505,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 31200,
+   "composite": 0.2545,
+   "p05": 0.2139,
+   "p95": 0.591,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 31300,
+   "composite": 0.2545,
+   "p05": 0.212,
+   "p95": 0.5848,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 31400,
+   "composite": 0.2545,
+   "p05": 0.2097,
+   "p95": 0.5987,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 31500,
+   "composite": 0.2545,
+   "p05": 0.2068,
+   "p95": 0.5895,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 31600,
+   "composite": 0.2545,
+   "p05": 0.2074,
+   "p95": 0.5925,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 31700,
+   "composite": 0.2545,
+   "p05": 0.2108,
+   "p95": 0.5837,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 31800,
+   "composite": 0.4853,
+   "p05": 0.4026,
+   "p95": 0.808,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 31900,
+   "composite": 0.4084,
+   "p05": 0.3073,
+   "p95": 0.7215,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 32000,
+   "composite": 0.4853,
+   "p05": 0.3654,
+   "p95": 0.7583,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 32100,
+   "composite": 0.6391,
+   "p05": 0.4962,
+   "p95": 0.9327,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 32200,
+   "composite": 0.5622,
+   "p05": 0.4341,
+   "p95": 0.8752,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 32300,
+   "composite": 0.7161,
+   "p05": 0.6125,
+   "p95": 1.0289,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 32400,
+   "composite": 0.5113,
+   "p05": 0.4203,
+   "p95": 0.8198,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 32500,
+   "composite": 0.2806,
+   "p05": 0.2296,
+   "p95": 0.6056,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 32600,
+   "composite": 0.5113,
+   "p05": 0.4242,
+   "p95": 0.8123,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 32700,
+   "composite": 0.5113,
+   "p05": 0.4246,
+   "p95": 0.8141,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 32800,
+   "composite": 0.5904,
+   "p05": 0.5018,
+   "p95": 0.896,
+   "band": "medium",
+   "robust": true,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 32900,
+   "composite": 0.3597,
+   "p05": 0.3013,
+   "p95": 0.6912,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 33000,
+   "composite": 0.7443,
+   "p05": 0.608,
+   "p95": 1.0432,
+   "band": "high",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 33100,
+   "composite": 0.7443,
+   "p05": 0.6132,
+   "p95": 1.0396,
+   "band": "high",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 33200,
+   "composite": 0.8212,
+   "p05": 0.6791,
+   "p95": 1.0813,
+   "band": "high",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 33300,
+   "composite": 0.8212,
+   "p05": 0.6771,
+   "p95": 1.0843,
+   "band": "high",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 33400,
+   "composite": 0.8212,
+   "p05": 0.6197,
+   "p95": 1.0267,
+   "band": "high",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 33500,
+   "composite": 0.8212,
+   "p05": 0.6203,
+   "p95": 1.0225,
+   "band": "high",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 33600,
+   "composite": 0.975,
+   "p05": 0.7523,
+   "p95": 1.1891,
+   "band": "high",
+   "robust": true,
+   "anomaly": true
+  },
+  {
+   "chainage_m": 33700,
+   "composite": 0.8981,
+   "p05": 0.6932,
+   "p95": 1.1237,
+   "band": "high",
+   "robust": true,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 33800,
+   "composite": 0.8212,
+   "p05": 0.6589,
+   "p95": 1.0625,
+   "band": "high",
+   "robust": true,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 33900,
+   "composite": 0.4366,
+   "p05": 0.3372,
+   "p95": 0.7505,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 34000,
+   "composite": 0.5135,
+   "p05": 0.402,
+   "p95": 0.8118,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 34100,
+   "composite": 0.4366,
+   "p05": 0.3404,
+   "p95": 0.7524,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 34200,
+   "composite": 0.3597,
+   "p05": 0.3082,
+   "p95": 0.6913,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 34300,
+   "composite": 0.4366,
+   "p05": 0.3418,
+   "p95": 0.7542,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 34400,
+   "composite": 0.5135,
+   "p05": 0.3969,
+   "p95": 0.818,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 34500,
+   "composite": 0.5135,
+   "p05": 0.401,
+   "p95": 0.824,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 34600,
+   "composite": 0.5135,
+   "p05": 0.3995,
+   "p95": 0.816,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 34700,
+   "composite": 0.4366,
+   "p05": 0.3375,
+   "p95": 0.7505,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 34800,
+   "composite": 0.4366,
+   "p05": 0.3401,
+   "p95": 0.7472,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 34900,
+   "composite": 0.4366,
+   "p05": 0.338,
+   "p95": 0.7498,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 35000,
+   "composite": 0.4366,
+   "p05": 0.338,
+   "p95": 0.7555,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 35100,
+   "composite": 0.6673,
+   "p05": 0.5734,
+   "p95": 0.9654,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 35200,
+   "composite": 0.6835,
+   "p05": 0.5857,
+   "p95": 0.9697,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 35300,
+   "composite": 0.6835,
+   "p05": 0.584,
+   "p95": 0.974,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 35400,
+   "composite": 0.4527,
+   "p05": 0.3933,
+   "p95": 0.7673,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 35500,
+   "composite": 0.3758,
+   "p05": 0.3179,
+   "p95": 0.6937,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 35600,
+   "composite": 0.3846,
+   "p05": 0.3307,
+   "p95": 0.6996,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 35700,
+   "composite": 0.6154,
+   "p05": 0.5395,
+   "p95": 0.9189,
+   "band": "medium",
+   "robust": true,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 35800,
+   "composite": 0.6923,
+   "p05": 0.5947,
+   "p95": 0.9783,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 35900,
+   "composite": 0.6923,
+   "p05": 0.6017,
+   "p95": 0.9817,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 36000,
+   "composite": 0.4615,
+   "p05": 0.3909,
+   "p95": 0.7596,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 36100,
+   "composite": 0.4615,
+   "p05": 0.3924,
+   "p95": 0.7531,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 36200,
+   "composite": 0.6923,
+   "p05": 0.5831,
+   "p95": 0.9672,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 36300,
+   "composite": 0.6923,
+   "p05": 0.5887,
+   "p95": 0.9729,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 36400,
+   "composite": 0.4615,
+   "p05": 0.3874,
+   "p95": 0.746,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 36500,
+   "composite": 0.5385,
+   "p05": 0.4244,
+   "p95": 0.8271,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 36600,
+   "composite": 0.6154,
+   "p05": 0.48,
+   "p95": 0.8878,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 36700,
+   "composite": 0.6154,
+   "p05": 0.4782,
+   "p95": 0.8925,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 36800,
+   "composite": 0.6154,
+   "p05": 0.4808,
+   "p95": 0.8868,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 36900,
+   "composite": 0.6154,
+   "p05": 0.4785,
+   "p95": 0.8832,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 37000,
+   "composite": 0.6154,
+   "p05": 0.4842,
+   "p95": 0.8851,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 37100,
+   "composite": 0.6154,
+   "p05": 0.4836,
+   "p95": 0.886,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 37200,
+   "composite": 0.6154,
+   "p05": 0.4811,
+   "p95": 0.8794,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 37300,
+   "composite": 0.5385,
+   "p05": 0.4208,
+   "p95": 0.8201,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 37400,
+   "composite": 0.5385,
+   "p05": 0.4227,
+   "p95": 0.8253,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 37500,
+   "composite": 0.5385,
+   "p05": 0.4204,
+   "p95": 0.8227,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 37600,
+   "composite": 0.4615,
+   "p05": 0.3857,
+   "p95": 0.7619,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 37700,
+   "composite": 0.5385,
+   "p05": 0.4214,
+   "p95": 0.8269,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 37800,
+   "composite": 0.4615,
+   "p05": 0.3841,
+   "p95": 0.756,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 37900,
+   "composite": 0.5385,
+   "p05": 0.4147,
+   "p95": 0.8262,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 38000,
+   "composite": 0.4615,
+   "p05": 0.3878,
+   "p95": 0.7557,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 38100,
+   "composite": 0.6923,
+   "p05": 0.599,
+   "p95": 0.9845,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 38200,
+   "composite": 0.4615,
+   "p05": 0.3875,
+   "p95": 0.7606,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 38300,
+   "composite": 0.5385,
+   "p05": 0.427,
+   "p95": 0.8254,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 38400,
+   "composite": 0.5385,
+   "p05": 0.4181,
+   "p95": 0.8307,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 38500,
+   "composite": 0.6154,
+   "p05": 0.4734,
+   "p95": 0.8909,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 38600,
+   "composite": 0.6923,
+   "p05": 0.5402,
+   "p95": 0.923,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 38700,
+   "composite": 0.6923,
+   "p05": 0.5416,
+   "p95": 0.9275,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 38800,
+   "composite": 0.6154,
+   "p05": 0.48,
+   "p95": 0.8851,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 38900,
+   "composite": 0.5385,
+   "p05": 0.4214,
+   "p95": 0.8209,
+   "band": "medium",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 39000,
+   "composite": 0.4615,
+   "p05": 0.3914,
+   "p95": 0.758,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 39100,
+   "composite": 0.4615,
+   "p05": 0.387,
+   "p95": 0.7644,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 39200,
+   "composite": 0.4615,
+   "p05": 0.3902,
+   "p95": 0.7575,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 39300,
+   "composite": 0.4615,
+   "p05": 0.3869,
+   "p95": 0.7506,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 39400,
+   "composite": 0.4615,
+   "p05": 0.3864,
+   "p95": 0.7604,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 39500,
+   "composite": 0.4615,
+   "p05": 0.3848,
+   "p95": 0.7615,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 39600,
+   "composite": 0.4615,
+   "p05": 0.3861,
+   "p95": 0.7556,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 39700,
+   "composite": 0.4615,
+   "p05": 0.3855,
+   "p95": 0.7602,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 39800,
+   "composite": 0.4615,
+   "p05": 0.3884,
+   "p95": 0.7559,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 39900,
+   "composite": 0.4615,
+   "p05": 0.3843,
+   "p95": 0.7596,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 40000,
+   "composite": 0.3846,
+   "p05": 0.3301,
+   "p95": 0.7017,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 40100,
+   "composite": 0.3846,
+   "p05": 0.3223,
+   "p95": 0.6878,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 40200,
+   "composite": 0.3846,
+   "p05": 0.3286,
+   "p95": 0.6975,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 40300,
+   "composite": 0.3846,
+   "p05": 0.3253,
+   "p95": 0.6922,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 40400,
+   "composite": 0.3846,
+   "p05": 0.3277,
+   "p95": 0.691,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 40500,
+   "composite": 0.4615,
+   "p05": 0.362,
+   "p95": 0.7636,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 40600,
+   "composite": 0.4615,
+   "p05": 0.3571,
+   "p95": 0.7601,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 40700,
+   "composite": 0.3846,
+   "p05": 0.3286,
+   "p95": 0.6989,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 40800,
+   "composite": 0.3846,
+   "p05": 0.3293,
+   "p95": 0.6936,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 40900,
+   "composite": 0.3846,
+   "p05": 0.3271,
+   "p95": 0.6941,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 41000,
+   "composite": 0.3846,
+   "p05": 0.3267,
+   "p95": 0.6888,
+   "band": "low",
+   "robust": false,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 41100,
+   "composite": 0.6154,
+   "p05": 0.5422,
+   "p95": 0.9214,
+   "band": "medium",
+   "robust": true,
+   "anomaly": false
+  },
+  {
+   "chainage_m": 41200,
+   "composite": 0.6154,
+   "p05": 0.54,
+   "p95": 0.9208,
+   "band": "medium",
+   "robust": true,
+   "anomaly": false
+  }
+ ]
+}

@@ -1,0 +1,70 @@
+{
+ "surrogate_r2": 0.9758,
+ "features": [
+  {
+   "label": "Existing elevated structure",
+   "importance": 0.40847,
+   "std": 0.02881
+  },
+  {
+   "label": "Entry\u2013exit feasibility",
+   "importance": 0.32618,
+   "std": 0.01941
+  },
+  {
+   "label": "Hydraulic sensitivity",
+   "importance": 0.30552,
+   "std": 0.01872
+  },
+  {
+   "label": "EHT line crossing",
+   "importance": 0.28121,
+   "std": 0.0189
+  },
+  {
+   "label": "Metro interface",
+   "importance": 0.27675,
+   "std": 0.04184
+  },
+  {
+   "label": "Dam / check structure",
+   "importance": 0.24293,
+   "std": 0.01645
+  },
+  {
+   "label": "Built-up growth since 2018",
+   "importance": 0.19566,
+   "std": 0.01088
+  },
+  {
+   "label": "Habitation proximity",
+   "importance": 0.0986,
+   "std": 0.01049
+  },
+  {
+   "label": "Major arterial crossing",
+   "importance": 0.08356,
+   "std": 0.00767
+  },
+  {
+   "label": "Curve severity",
+   "importance": 0.06617,
+   "std": 0.01665
+  },
+  {
+   "label": "Railway crossing",
+   "importance": 0.04189,
+   "std": 0.00467
+  },
+  {
+   "label": "Restricted / military area",
+   "importance": 0.0,
+   "std": 0.0
+  },
+  {
+   "label": "Land availability",
+   "importance": 0.0,
+   "std": 0.0
+  }
+ ]
+}
