@@ -41,24 +41,25 @@ export default function LimitationsPage() {
           />
         </Section>
 
-        <Section title="No zoning layer exists">
+        <Section title="Zoning: registered, but not classified">
           <p>
-            The approved Zonal Development Plan sheets were obtained from the JDA asset host. They were not
-            converted into zoning polygons, and no chainage carries a land-use attribute.
+            The approved Zonal Development Plan sheets print a labelled geographic graticule, so sheet 10
+            has now been georeferenced from the sheet itself — graticule interval read off the printed
+            labels, ticks measured in the neatline margin, affine fitted by least squares. Residuals are
+            <strong> 0.75 m in longitude and 1.40 m in latitude</strong>, with 0.19% anisotropy. Against
+            100 m chainage segments, registration error is not a material source of error.
           </p>
           <p>
-            An earlier version of this page said the sheets carried no usable coordinate reference. That
-            was wrong, and the correction is favourable: the sheets do print a labelled geographic
-            graticule — a meridian tick reading 75°40&apos;30&quot;E on sheet 10 — and a graphic scale bar.
-            They are georeferenceable to survey precision from the sheet alone, with no eyeballed control
-            points needed.
+            It covers chainage 9.1–20.0 km, a contiguous 110-segment run, which is itself a check: a bad
+            fit would produce scattered or empty coverage. You can switch it on over the map.
           </p>
           <p>
-            What remains is separating the ruled graticule from drawn watercourses, which are inked in a
-            similar blue and defeat a simple colour threshold. That is contained work. It was not rushed to
-            completion, because a transform fitted from mis-identified lines would assign wrong land use to
-            real chainages while looking entirely plausible — and no zoning will be published here until a
-            transform exists and its RMS residual is published beside it.
+            What is still <em>not</em> done is classifying the land-use colours into zoning categories. That
+            is a separate problem with its own error budget — legend colours are printed over hatching and
+            shifted by scanning — and a misclassification would attach a confidently wrong land use to real
+            chainages. So no chainage carries a zoning attribute. The registered sheet is published as an
+            overlay instead, which lets a reviewer read zoning against the corridor directly without
+            trusting a classifier nobody has validated.
           </p>
         </Section>
 

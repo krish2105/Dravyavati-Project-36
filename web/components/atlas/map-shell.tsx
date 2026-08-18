@@ -55,9 +55,11 @@ function popupHtml(props: Record<string, unknown>): string {
 export function MapShell({
   showRobustOnly = false,
   terrain3d = false,
+  zoningOverlay = false,
 }: {
   showRobustOnly?: boolean;
   terrain3d?: boolean;
+  zoningOverlay?: boolean;
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<MapLibreMap | null>(null);
@@ -110,6 +112,36 @@ export function MapShell({
         if (!geojson.features?.length) {
           setStatus("empty");
           return;
+        }
+
+        // Georeferenced JDA Zonal Development Plan sheet. Registered from the
+        // sheet's own printed graticule to ~1 m RMS, so it overlays true to
+        // position. Land-use colours are deliberately not classified — the
+        // reviewer reads zoning off the sheet directly.
+        try {
+          const zres = await fetch("/overlays/zdp_10.json");
+          if (zres.ok) {
+            const z = await zres.json();
+            const b = z.bounds;
+            map.addSource("zdp-10", {
+              type: "image",
+              url: "/overlays/zdp_10.jpg",
+              coordinates: [
+                [b.west, b.north],
+                [b.east, b.north],
+                [b.east, b.south],
+                [b.west, b.south],
+              ],
+            });
+            map.addLayer({
+              id: "zdp-10-layer",
+              type: "raster",
+              source: "zdp-10",
+              paint: { "raster-opacity": 0 },
+            });
+          }
+        } catch {
+          /* overlay is optional; the atlas works without it */
         }
 
         map.addSource(RISK_SOURCE_ID, { type: "geojson", data: geojson });
@@ -187,6 +219,14 @@ export function MapShell({
       }
     };
   }, []);
+
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map || status !== "loaded") return;
+    if (map.getLayer("zdp-10-layer")) {
+      map.setPaintProperty("zdp-10-layer", "raster-opacity", zoningOverlay ? 0.75 : 0);
+    }
+  }, [zoningOverlay, status]);
 
   useEffect(() => {
     const map = mapRef.current;

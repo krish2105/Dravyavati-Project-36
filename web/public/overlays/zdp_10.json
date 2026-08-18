@@ -1,0 +1,16 @@
+{
+ "sheet": "10",
+ "bounds": {
+  "west": 75.66180597140445,
+  "east": 75.79634149425537,
+  "north": 26.888653735246223,
+  "south": 26.7244216509932
+ },
+ "rms_residual_m": {
+  "lon": 0.746,
+  "lat": 1.395
+ },
+ "interval_arcsec": 45.0,
+ "source": "JDA approved Zonal Development Plan",
+ "note": "Registered from the sheet's printed graticule. Land-use colours are NOT classified."
+}
