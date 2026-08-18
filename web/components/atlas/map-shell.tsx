@@ -1,15 +1,51 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { MapLibreMap, NavigationControl, LngLatBounds } from "maplibre-gl";
+import { MapLibreMap, NavigationControl, LngLatBounds, Popup } from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 
 const JAIPUR_CENTER: [number, number] = [75.7873, 26.9124];
 
-const RIVER_SOURCE_ID = "dravyavati-river";
-const RIVER_LAYER_ID = "dravyavati-river-line";
+const RISK_SOURCE_ID = "chainage-risk";
+const RISK_LAYER_ID = "chainage-risk-line";
+const HOTSPOT_LAYER_ID = "chainage-risk-hotspot-outline";
 
-export function MapShell() {
+const CONSTRAINT_LABELS: Record<string, string> = {
+  railway_crossing: "Railway crossing",
+  metro_interface: "Metro interface",
+  existing_elevated_structure: "Existing elevated structure",
+  major_arterial_crossing: "Major arterial crossing",
+  restricted_military_area: "Restricted / military area",
+  entry_exit_feasibility: "Entry–exit feasibility",
+  curve_severity: "Curve severity",
+  eht_line_crossing: "EHT line crossing",
+  dam_check_structure: "Dam / check structure",
+  land_availability: "Land availability",
+  habitation_proximity: "Habitation proximity",
+  hydraulic_sensitivity: "Hydraulic sensitivity",
+};
+
+function popupHtml(props: Record<string, unknown>): string {
+  const rows = Object.entries(CONSTRAINT_LABELS)
+    .map(([key, label]) => {
+      const score = props[`${key}_score`] ?? (key === "hydraulic_sensitivity" ? props.hydraulic_sensitivity_index : undefined);
+      const confidence = props[`${key}_confidence`];
+      if (score === undefined || score === null) return "";
+      const value = typeof score === "number" && key === "hydraulic_sensitivity" ? (score * 3).toFixed(1) : score;
+      return `<tr><td style="padding-right:8px;color:var(--fog)">${label}</td><td style="text-align:right">${value}</td><td style="padding-left:8px;font-size:10px;color:var(--fog);text-transform:uppercase">${confidence ?? ""}</td></tr>`;
+    })
+    .join("");
+
+  return `
+    <div style="font-family:var(--font-sans, sans-serif); min-width:220px">
+      <div style="font-family:var(--font-mono, monospace); font-size:11px; color:var(--fog)">chainage ${props.chainage_m}m</div>
+      <div style="font-weight:600; margin:2px 0 6px">Composite ${Number(props.composite_score).toFixed(2)} — ${props.severity_band}${props.robust_hotspot ? " · robust hotspot" : ""}</div>
+      <table style="font-size:12px; width:100%; border-collapse:collapse">${rows}</table>
+    </div>
+  `;
+}
+
+export function MapShell({ showRobustOnly = false }: { showRobustOnly?: boolean }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<MapLibreMap | null>(null);
   const [status, setStatus] = useState<"loading" | "loaded" | "empty" | "error">("loading");
@@ -38,15 +74,12 @@ export function MapShell() {
     mapRef.current = map;
     map.addControl(new NavigationControl({ showCompass: false }), "top-right");
 
-    // The container can be zero-sized at construction time (e.g. a flex layout
-    // that hasn't settled yet, or the tab starting hidden) — MapLibre only reads
-    // its size once, so recover by resizing whenever the container's box changes.
     const resizeObserver = new ResizeObserver(() => map.resize());
     resizeObserver.observe(containerRef.current);
 
     map.on("load", async () => {
       try {
-        const res = await fetch("/data/dravyavati-river.geojson");
+        const res = await fetch("/data/chainage_risk.geojson");
         if (!res.ok) throw new Error(`fetch failed: ${res.status}`);
         const geojson = await res.json();
 
@@ -55,36 +88,67 @@ export function MapShell() {
           return;
         }
 
-        map.addSource(RIVER_SOURCE_ID, { type: "geojson", data: geojson });
+        map.addSource(RISK_SOURCE_ID, { type: "geojson", data: geojson });
+
         map.addLayer({
-          id: RIVER_LAYER_ID,
+          id: RISK_LAYER_ID,
           type: "line",
-          source: RIVER_SOURCE_ID,
+          source: RISK_SOURCE_ID,
           layout: { "line-join": "round", "line-cap": "round" },
           paint: {
-            "line-color": "#2fa8a0",
-            "line-width": 4,
+            "line-color": [
+              "match",
+              ["get", "severity_band"],
+              "high",
+              "#e8a23d",
+              "medium",
+              "#c98f4a",
+              /* low */ "#2fa8a0",
+            ],
+            "line-width": ["match", ["get", "severity_band"], "high", 6, "medium", 4.5, 3],
             "line-opacity": 0.9,
           },
         });
 
+        map.addLayer({
+          id: HOTSPOT_LAYER_ID,
+          type: "line",
+          source: RISK_SOURCE_ID,
+          layout: { "line-join": "round", "line-cap": "round" },
+          filter: ["==", ["get", "robust_hotspot"], true],
+          paint: {
+            "line-color": "#e8a23d",
+            "line-width": 10,
+            "line-opacity": 0.35,
+            "line-blur": 2,
+          },
+        });
+        map.moveLayer(HOTSPOT_LAYER_ID, RISK_LAYER_ID);
+
+        const popup = new Popup({ closeButton: true, maxWidth: "300px" });
+        map.on("click", RISK_LAYER_ID, (e) => {
+          const feature = e.features?.[0];
+          if (!feature) return;
+          popup.setLngLat(e.lngLat).setHTML(popupHtml(feature.properties as Record<string, unknown>)).addTo(map);
+        });
+        map.on("mouseenter", RISK_LAYER_ID, () => (map.getCanvas().style.cursor = "pointer"));
+        map.on("mouseleave", RISK_LAYER_ID, () => (map.getCanvas().style.cursor = ""));
+
         const bounds = new LngLatBounds();
         let hasCoords = false;
         for (const feature of geojson.features) {
-          const geom = feature.geometry;
-          const coordsList: number[][] =
-            geom.type === "LineString"
-              ? geom.coordinates
-              : geom.type === "MultiLineString"
-                ? geom.coordinates.flat()
-                : [];
-          for (const c of coordsList) {
+          const coords: number[][] = feature.geometry.coordinates;
+          for (const c of coords) {
             bounds.extend(c as [number, number]);
             hasCoords = true;
           }
         }
         if (hasCoords) map.fitBounds(bounds, { padding: 80, duration: 0 });
-        setStatus("loaded");
+
+        // 'load' only means the *style* is ready — the GeoJSON source still
+        // tiles/processes asynchronously. Wait for 'idle' so the "loading"
+        // overlay doesn't disappear before there's actually anything to see.
+        map.once("idle", () => setStatus("loaded"));
       } catch {
         setStatus("error");
       }
@@ -99,6 +163,13 @@ export function MapShell() {
       }
     };
   }, []);
+
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map || status !== "loaded") return;
+    const filter = showRobustOnly ? ["==", ["get", "robust_hotspot"], true] : null;
+    if (map.getLayer(RISK_LAYER_ID)) map.setFilter(RISK_LAYER_ID, filter as never);
+  }, [showRobustOnly, status]);
 
   return (
     <div className="relative h-full w-full">
@@ -115,8 +186,8 @@ export function MapShell() {
         <div className="pointer-events-none absolute inset-x-0 bottom-24 flex justify-center px-4">
           <p className="rounded-lg border border-line bg-surface/95 px-4 py-2 font-mono text-xs text-fog shadow-lg">
             {status === "empty"
-              ? "No river geometry found yet — run the OSM fetch to populate public/data/dravyavati-river.geojson."
-              : "Could not load river geometry."}
+              ? "No scored corridor data yet — run the Python pipeline (src/scoring/composite.py) and src/export/web.py."
+              : "Could not load corridor data."}
           </p>
         </div>
       )}

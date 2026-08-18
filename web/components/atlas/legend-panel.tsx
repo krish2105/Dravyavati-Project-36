@@ -1,28 +1,32 @@
-const ROWS: { label: string; swatch: string; note: string }[] = [
-  { label: "0 — no constraint", swatch: "bg-channel/20", note: "" },
-  { label: "1 — minor", swatch: "bg-channel/50", note: "" },
-  { label: "2 — moderate", swatch: "bg-flag/60", note: "" },
-  { label: "3 — severe", swatch: "bg-flag", note: "" },
+const ROWS: { label: string; swatch: string }[] = [
+  { label: "Low — bottom 70% of segments", swatch: "bg-channel" },
+  { label: "Medium — 70th–90th percentile", swatch: "bg-[#c98f4a]" },
+  { label: "High — top 10% of segments", swatch: "bg-flag" },
 ];
 
 export function LegendPanel() {
   return (
-    <div
-      className="absolute left-4 top-28 z-10 hidden w-64 rounded-2xl border border-line bg-surface/90 p-4
-                 text-sm shadow-[0_8px_24px_rgba(0,0,0,0.18)] backdrop-blur-md dark:shadow-[0_8px_24px_rgba(0,0,0,0.5)] sm:block"
-    >
+    <div className="p-4 text-sm">
       <h2 className="font-display text-sm font-medium text-foreground">Composite severity</h2>
       <ul className="mt-3 space-y-2">
         {ROWS.map((r) => (
           <li key={r.label} className="flex items-center gap-2 text-xs text-fog">
-            <span className={`h-3 w-3 rounded-sm ${r.swatch}`} aria-hidden />
+            <span className={`h-3 w-3 shrink-0 rounded-sm ${r.swatch}`} aria-hidden />
             {r.label}
           </li>
         ))}
       </ul>
+      <div className="mt-3 flex items-center gap-2 text-xs text-fog">
+        <span className="h-3 w-3 shrink-0 rounded-sm border-2 border-flag/60" aria-hidden />
+        Robust hotspot (stable under ±35% reweighting)
+      </div>
       <p className="mt-4 border-t border-line pt-3 text-[11px] leading-relaxed text-fog">
-        River geometry: OpenStreetMap, fetched live. Scores: placeholder — Sessions 2–7 of the
-        build plan have not run.
+        Equal-weight composite across all 12 constraints. Click a segment on the map for its
+        full breakdown. See{" "}
+        <code className="rounded bg-surface-muted px-1 py-0.5 font-mono text-[0.9em]">
+          data/SOURCES.md
+        </code>{" "}
+        for provenance and confidence per layer.
       </p>
     </div>
   );
