@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# maplibre worker files copied from node_modules by scripts/copy-maplibre-worker.mjs
+# (regenerated on every dev/build - see that script for why they must be served from public/)
+/public/maplibre/

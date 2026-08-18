@@ -1,8 +1,15 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { MapLibreMap, NavigationControl, LngLatBounds, Popup } from "maplibre-gl";
+import { MapLibreMap, NavigationControl, LngLatBounds, Popup, setWorkerUrl } from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
+
+// Turbopack emits maplibre's worker without its `maplibre-gl-shared.mjs`
+// sibling, so the worker dies on first import: the map mounts and raster
+// tiles draw, but every GeoJSON source hangs at isSourceLoaded=false and no
+// vector feature ever renders. Serve both files ourselves instead — see
+// scripts/copy-maplibre-worker.mjs.
+setWorkerUrl("/maplibre/maplibre-gl-worker.mjs");
 
 const JAIPUR_CENTER: [number, number] = [75.7873, 26.9124];
 

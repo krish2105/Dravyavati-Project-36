@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "prepare-maplibre": "node scripts/copy-maplibre-worker.mjs",
+    "dev": "npm run prepare-maplibre && next dev",
+    "build": "npm run prepare-maplibre && next build",
     "start": "next start",
     "lint": "eslint"
   },
