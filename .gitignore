@@ -1,0 +1,11 @@
+# Provenance rule (see CLAUDE.md, once Session 1's Python scaffold resumes): raw/interim data is never committed
+data/raw/
+data/interim/
+.env
+
+.DS_Store
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+*.egg-info/
