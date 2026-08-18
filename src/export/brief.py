@@ -381,11 +381,35 @@ def build_brief() -> Path:
         ),
         (
             "Land use zoning",
-            "The Jaipur Master Plan 2047 land-use layer is absent: the source portal refuses automated "
-            "requests. No zoning substitute was invented in its place.",
+            "No zoning attribute is attached to any chainage. The approved Zonal Development Plan sheets "
+            "were obtained, but they are large scans with no embedded coordinate system; georeferencing "
+            "them needs hand-picked control points, and a mis-registered layer would assign wrong land use "
+            "to real chainages. Left undone deliberately rather than approximated.",
         ),
     ]
     story.append(_kv_table(limits, s, [42 * mm, doc.width - 42 * mm]))
+
+    story.append(Paragraph("A note on the planning baseline", s["h2"]))
+    story.append(
+        Paragraph(
+            "This analysis was originally scoped against the Jaipur Master Plan 2047. In the course of "
+            "sourcing that document it became clear that <b>Master Plan 2047 is not an approved statutory "
+            "plan</b> — it is in preparation, with public reporting indicating a 2027–28 release and an "
+            "expansion from 18 to 27 planning zones. The plan currently in force remains Master Plan 2025, "
+            "approved in 2011. The approved Zonal Development Plans were obtained instead. This is flagged "
+            "because any screening work that cites a 2047 land-use position today is citing a document that "
+            "does not yet exist, and that is worth knowing before it reaches a decision note.",
+            s["body"],
+        )
+    )
+    story.append(
+        Paragraph(
+            "For context, published reporting puts the current plan area at roughly 2,940–3,000 km², the "
+            "proposed 2047 extent at roughly 6,000 km², and Jaipur's 2047 population at 10–12.5 million. "
+            "None of these figures enter any score in this atlas.",
+            s["small"],
+        )
+    )
 
     story.append(Paragraph("Sources", s["h2"]))
     story.append(

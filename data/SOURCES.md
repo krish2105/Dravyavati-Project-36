@@ -21,8 +21,17 @@ the URLs below.
 | Rainfall normals 2010–2020 at the corridor | [Open-Meteo ERA5 archive](https://open-meteo.com/) (`archive-api.open-meteo.com/v1/archive`) | 2026-08-19 | Free, no API key. Annual mean 620.7 mm; Jun–Sep mean 555.4 mm = **89.5% of annual**. Pure context for interpreting cross-drainage counts — not an input to any score. |
 | Cross-drainage candidates (derived) | Copernicus GLO-30 (above) + OSM river polygons (above) | 2026-08-19 | D8 flow accumulation, tributaries thresholded at >2000 cells (~1.8 km² contributing area), with the main Dravyavati channel subtracted so the test finds *lateral* inflows rather than the corridor's own drainage line. 23 distinct candidate locations over 41 km. Low confidence: GLO-30 cannot resolve small urban drains and predates recent channelisation, so these are candidates for survey, not a count of structures actually required. |
 
-### Attempted and blocked
+| JDA Zonal Development Plans (approved), sheets for zones 10, 11A, 12, 13 | Listing: [JDA — Zonal Development Plan](https://jda.rajasthan.gov.in/content/raj/udh/jda---jaipur/en/town-planning/zonal-development-plan.html) · Assets: `jdaservice.rajasthan.gov.in/pdf/ZoneDevelopmentPlan/Final_ZDP_{zone}.jpg` | 2026-08-19 | The **approved statutory land-use documents** for each planning zone — 19 sheets listed, all marked Approved. High-resolution sheets download normally from the `jdaservice` asset host even though the main `jda.rajasthan.gov.in` domain returns 403 to automated requests. Stored in `data/raw/jda_zdp/` (gitignored, ~138 MB). **No zoning attribute is attached to any chainage** — see the row below. |
+| Jaipur planning context figures (area, population projection, zone counts) | Published reporting: [Jaipur Dream Homes](https://jaipurdreamhomes.com/jaipur-master-plan-2047-city-limits-double-to-6000-sq-km-or-new-areas-list), [Virat Group](https://viratgroup.co/jda-master-plan-2047/), [ikanvisit](https://ikanvisit.com/news/Jaipur-Master-Plan-2025) | 2026-08-19 | Current plan area ~2,940–3,000 km²; proposed 2047 area ~6,000 km²; population projected to 10–12.5 million by 2047; planning zones expanding 18 → 27. Recorded as context in `src/ingest/zoning.py`. **Not scored, not attached per-chainage** — secondary reporting, not a primary JDA document. |
+
+### Corrections to the original build pack
+
+| Item | Finding |
+|---|---|
+| "Jaipur Master Plan 2047" as a data source (pack §4) | **The document does not exist as an approved statutory plan.** As of August 2026 it is in preparation, with public reporting pointing at a 2027–28 release. The plan currently in force is **Master Plan 2025, approved 2011**. The pack's §4 line item was therefore based on a false premise. The approved Zonal Development Plans (row above) are the real operative land-use documents and were fetched instead. |
+
+### Attempted and not completed
 
 | Layer | Status |
 |---|---|
-| Jaipur Master Plan 2047 land-use zoning | **Not obtained.** `jda.rajasthan.gov.in` returns HTTP 403 to automated requests (both the document paths tried and the site root), so the PDF could not be fetched or georeferenced from this environment. No zoning layer exists in the repo — deliberately left absent rather than substituted with a guess. Obtaining it needs a manual download by a human browser. |
+| Zoning polygons per chainage | **Not produced.** The ZDP sheets are ~10,800 × 15,000 px scans with no embedded CRS and no usable printed graticule. Converting them to polygons requires hand-picked ground control points plus colour classification against each sheet's legend. That was not attempted, because a mis-registered zoning layer would silently assign the wrong land use to real chainages — precisely the failure mode invariants 1 and 2 exist to prevent. The sheets are downloaded and recorded so the work can be done deliberately, with its RMS error published, rather than guessed at. |

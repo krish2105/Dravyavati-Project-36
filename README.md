@@ -116,8 +116,19 @@ Stated plainly, because these are the parts most likely to be wrong:
 - **Alignment length** — 41.2 km against a publicly reported ~36 km. A real alignment would
   ease curves harder than a medial axis can and may bridge across meanders. Chainages here
   will not correspond exactly to a DPR's.
-- **Land-use zoning is absent** — `jda.rajasthan.gov.in` returns HTTP 403 to automated
-  requests, so the Master Plan 2047 layer could not be fetched. No substitute was invented.
+- **Land-use zoning is absent** — the approved Zonal Development Plan sheets were obtained,
+  but they are ~10,800 × 15,000 px scans with no embedded CRS. Georeferencing them needs
+  hand-picked control points, and a mis-registered layer would assign wrong land use to real
+  chainages, so no zoning attribute is attached to any chainage. Left undone deliberately.
+
+### Correction to the original brief
+
+The project was scoped against the "Jaipur Master Plan 2047". **That document is not an
+approved statutory plan** — it is in preparation, with public reporting indicating a 2027–28
+release and an expansion from 18 to 27 planning zones. The plan in force remains **Master
+Plan 2025, approved 2011**. The approved Zonal Development Plans were fetched instead. Any
+screening work citing a 2047 land-use position today is citing a document that does not yet
+exist.
 
 ---
 
