@@ -27,6 +27,11 @@ CONSTRAINT_WEIGHTS: dict[str, float | None] = {
     "land_availability": None,
     "habitation_proximity": None,
     "hydraulic_sensitivity": None,
+    # Phase 1 addition. Built-up growth along the channel since 2018: where
+    # habitation has encroached, land acquisition gets harder over time, not
+    # easier. Low confidence by construction (NDBI proxy) — see
+    # src/scoring/growth.py.
+    "builtup_growth": None,
 }
 """Empty by design — Session 7 ships the equal-weight defaults per pack §5."""
 

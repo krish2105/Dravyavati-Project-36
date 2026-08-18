@@ -40,6 +40,7 @@ SCORE_COLUMNS = {
     "land_availability": "land_availability_score",
     "habitation_proximity": "habitation_proximity_score",
     "hydraulic_sensitivity": "hydraulic_sensitivity_index",  # 0-1 scale, not 0-3 — see _normalise
+    "builtup_growth": "builtup_growth_score",
 }
 
 
@@ -141,9 +142,12 @@ def build_full_pipeline() -> pd.DataFrame:
     from src.geo.alignment import reconstruct_alignment
     from src.geo.chainage import segment_chainage
     from src.geo.curvature import compute_curvature
+    from src.scoring.drainage import score_drainage
+    from src.scoring.growth import score_builtup_growth
     from src.scoring.hydraulic import score_hydraulic
     from src.scoring.interfaces import score_interfaces
     from src.scoring.land import score_land_and_habitation
+    from src.scoring.metro import score_metro_detail
 
     alignment = reconstruct_alignment()
     alignment_working = alignment.to_crs(32643)
@@ -153,6 +157,11 @@ def build_full_pipeline() -> pd.DataFrame:
     segments = score_interfaces(segments)
     segments = score_land_and_habitation(segments)
     segments = score_hydraulic(alignment_working, segments)
+    # Phase 1 layers. metro_detail runs after interfaces because it overwrites
+    # that module's coarser boolean metro_interface_score with a status-aware one.
+    segments = score_metro_detail(segments)
+    segments = score_builtup_growth(segments)
+    segments = score_drainage(segments)
     segments = _complete_entry_exit_feasibility(segments)
 
     weights = {k: 1.0 for k in CONSTRAINT_WEIGHTS}  # equal weights, pack §5 default
