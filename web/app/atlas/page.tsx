@@ -22,10 +22,17 @@ export default function AtlasPage() {
             Screening-grade
           </span>
         </div>
-        <p className="hidden font-mono text-[11px] text-fog sm:block">
-          Screening-grade, not design-grade. All findings require verification against field
-          survey.
-        </p>
+        <nav className="flex items-center gap-4 text-sm">
+          <Link href="/analysis" className="text-fog transition-colors hover:text-foreground">
+            Analysis
+          </Link>
+          <a
+            href="/brief/Dravyavati_Corridor_Constraint_Atlas_Brief.pdf"
+            className="rounded-full border border-line px-3 py-1 text-xs text-foreground transition-colors hover:border-channel"
+          >
+            Brief (PDF)
+          </a>
+        </nav>
       </header>
 
       <KpiStrip />

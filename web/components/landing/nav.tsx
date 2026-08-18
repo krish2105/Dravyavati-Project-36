@@ -17,6 +17,9 @@ export function Nav() {
           <a href="#sources" className="transition-colors hover:text-foreground">
             Sources
           </a>
+          <Link href="/analysis" className="transition-colors hover:text-foreground">
+            Analysis
+          </Link>
           <Link
             href="/atlas"
             data-cursor-hover
