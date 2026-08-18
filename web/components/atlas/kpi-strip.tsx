@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 type Stats = {
   lengthKm: number;
   segments: number;
+  constraintCount: number;
   railwayCrossings: number;
   metroInterfaces: number;
   arterialCrossings: number;
@@ -48,8 +49,16 @@ export function KpiStrip() {
         const buildingsNear = rows.reduce((s, r) => s + (r.habitation_building_count as number), 0);
         const avgFracBuilt = rows.reduce((s, r) => s + (r.land_availability_frac_built as number), 0) / rows.length;
 
+        // Derived from the data rather than hardcoded: every scored constraint
+        // contributes a *_score column, plus the hydraulic index stored 0-1.
+        const first = rows[0] ?? {};
+        const constraintCount =
+          Object.keys(first).filter((k) => k.endsWith("_score") && k !== "composite_score").length +
+          ("hydraulic_sensitivity_index" in first ? 1 : 0);
+
         setStats({
           lengthKm,
+          constraintCount,
           segments: rows.length,
           railwayCrossings: countClusters(flag("railway_crossing_score")),
           metroInterfaces: countClusters(flag("metro_interface_score")),
@@ -87,7 +96,7 @@ export function KpiStrip() {
           </div>
           <div className="flex justify-between">
             <dt>Constraint categories</dt>
-            <dd className="tabular-nums text-foreground">12</dd>
+            <dd className="tabular-nums text-foreground">{v(stats?.constraintCount)}</dd>
           </div>
         </dl>
       </section>

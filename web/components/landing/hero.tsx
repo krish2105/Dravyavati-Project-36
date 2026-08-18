@@ -1,5 +1,5 @@
 import { SplitText } from "./split-text";
-import { Counter } from "./counter";
+import { HeroStats } from "./hero-stats";
 import { MagneticButton } from "./magnetic-button";
 import { ChainageRuler } from "../chainage-ruler";
 
@@ -28,20 +28,7 @@ export function Hero() {
           <SplitText text="mapped for what will resist it." />
         </h1>
 
-        <div className="flex flex-wrap items-end gap-x-12 gap-y-6 pt-4">
-          <div>
-            <div className="font-display text-4xl text-foreground">
-              <Counter to={36} suffix=" km" />
-            </div>
-            <p className="mt-1 text-sm text-fog">reconstructed corridor, Majar Dam → NH-148C</p>
-          </div>
-          <div>
-            <div className="font-display text-4xl text-foreground">
-              <Counter to={12} />
-            </div>
-            <p className="mt-1 text-sm text-fog">constraint categories scored per segment</p>
-          </div>
-        </div>
+        <HeroStats />
 
         <div className="flex flex-wrap items-center gap-5 pt-4">
           <MagneticButton href="/atlas">Open the atlas →</MagneticButton>

@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { SiteHeader } from "@/components/site-header";
 import { motion } from "motion/react";
 import { ChainageProfile } from "@/components/charts/chainage-profile";
 import { CooccurrenceMatrix } from "@/components/charts/cooccurrence-matrix";
@@ -33,7 +33,7 @@ function Panel({
       initial={{ y: 14 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease, delay }}
-      className={`rounded-2xl border border-line bg-surface p-5 ${className}`}
+      className={`rounded-2xl border border-line bg-surface p-4 sm:p-5 ${className}`}
     >
       <h2 className="font-display text-base font-medium text-foreground">{title}</h2>
       {subtitle && <p className="mt-0.5 mb-4 text-xs leading-relaxed text-fog">{subtitle}</p>}
@@ -49,29 +49,9 @@ export default function AnalysisPage() {
 
   return (
     <div className="min-h-screen w-full">
-      <header className="sticky top-0 z-30 flex flex-wrap items-center justify-between gap-2 border-b border-line bg-surface/95 px-4 py-2.5 backdrop-blur">
-        <div className="flex items-center gap-3">
-          <Link href="/" className="text-sm font-medium text-fog transition-colors hover:text-foreground">
-            ← Dravyavati Atlas
-          </Link>
-          <span className="rounded-full bg-channel/15 px-2.5 py-0.5 font-mono text-[10px] uppercase tracking-wide text-channel-dim dark:text-channel">
-            Analysis
-          </span>
-        </div>
-        <nav className="flex items-center gap-4 text-sm">
-          <Link href="/atlas" className="text-fog transition-colors hover:text-foreground">
-            Map view
-          </Link>
-          <a
-            href="/brief/Dravyavati_Corridor_Constraint_Atlas_Brief.pdf"
-            className="rounded-full border border-line px-3 py-1 text-xs text-foreground transition-colors hover:border-channel"
-          >
-            Download brief (PDF)
-          </a>
-        </nav>
-      </header>
+      <SiteHeader badge="Analysis" />
 
-      <main className="mx-auto w-full max-w-7xl space-y-4 p-4">
+      <main className="mx-auto w-full max-w-7xl space-y-4 p-3 sm:p-4">
         {!analytics && (
           <p className="py-20 text-center font-mono text-xs text-fog">Loading analysis…</p>
         )}
