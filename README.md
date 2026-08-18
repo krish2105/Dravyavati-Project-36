@@ -113,9 +113,13 @@ Stated plainly, because these are the parts most likely to be wrong:
 - **Hydraulic sensitivity (low confidence)** — GLO-30 at 30 m cannot resolve a rectified
   channel cross-section. Relative screening index over contributing area only. Not an afflux
   figure, not a flood claim.
-- **Alignment length** — 41.2 km against a publicly reported ~36 km. A real alignment would
-  ease curves harder than a medial axis can and may bridge across meanders. Chainages here
-  will not correspond exactly to a DPR's.
+- **Alignment length** — the channel-following reconstruction is 41.2 km against a reported
+  ~36 km. This is now quantified rather than left open: applying curve easing reaches
+  **36.43 km (within 1.2% of the reported figure)** at the cost of departing the mapped
+  channel by up to **875 m** to cut meanders, while improving IRC:86 curvature compliance.
+  Both alignments are published; scoring stays on the channel-following one because it
+  carries no easing assumptions. See `src/geo/eased_alignment.py`. Chainages still will not
+  correspond one-to-one with a DPR's.
 - **Land-use zoning is absent** — the approved Zonal Development Plan sheets were obtained,
   but they are ~10,800 × 15,000 px scans with no embedded CRS. Georeferencing them needs
   hand-picked control points, and a mis-registered layer would assign wrong land use to real

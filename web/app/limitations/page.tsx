@@ -11,22 +11,40 @@ export default function LimitationsPage() {
         title="What this gets wrong"
         lede="Published deliberately. A screening tool that only advertises its strengths is harder to check, and the parts most likely to be wrong are the parts most worth stating first."
       >
-        <Section title="The alignment is 41.2 km against a reported ~36 km">
+        <Section title="The 41.2 km vs ~36 km gap — measured, and explained">
           <p>
-            That gap is about 14%, and it is a property of the method rather than a bug. The reconstruction
-            follows the medial axis of the mapped channel. A designed alignment would ease curves far harder
-            than a medial axis can, and would bridge across meanders rather than tracing them.
+            The channel-following reconstruction measures 41.2 km against a publicly reported ~36 km. That
+            was an open discrepancy. It is now quantified, and it turns out to be neither figure being
+            wrong: it is the measurable cost of tracing a river&apos;s medial axis instead of easing curves
+            the way a designed alignment must.
           </p>
           <p>
-            Simplification could be pushed until the length matched — at 500 m tolerance it reaches roughly
-            39.5 km — but that flattens curvature to the point where almost every segment reads as straight,
-            which contradicts the physical reality of a river-following route and fails this project&apos;s
-            own curvature sanity check. Matching the headline number by degrading the geometry underneath it
-            would be the wrong trade.
+            Applying iterative curve easing and recording the trade-off at each stage gives:
+          </p>
+          <Rows
+            rows={[
+              ["No easing", "41.13 km · 0 m drift · 28 of 824 vertices below the IRC:86 minimum radius"],
+              ["Light easing", "38.09 km · 432 m drift · 7 of 824 below minimum"],
+              ["Moderate easing", "36.43 km · 875 m drift · 11 of 824 below minimum · 5th-percentile radius 2,594 m"],
+              ["Heavy easing", "35.33 km · 1,240 m drift · 12 of 824 below minimum"],
+            ]}
+          />
+          <p>
+            At moderate easing the alignment reaches <strong>36.43 km — the reported project length, within
+            1.2%</strong> — while improving curvature compliance. The price is departing the mapped channel
+            by up to <strong>875 m</strong> to cut meanders.
           </p>
           <p>
-            <strong>Consequence:</strong> chainages here will not correspond one-to-one with a DPR&apos;s.
-            Treat them as positions along a reconstruction, not as surveyed stations.
+            That is the useful statement, and it is more informative than either number alone: a ~36 km
+            corridor along this river is achievable, but implies leaving the channel by up to about 875 m.
+            Whether that departure is acceptable is a design and land-acquisition question this atlas does
+            not answer.
+          </p>
+          <p>
+            <strong>Scoring still uses the channel-following alignment</strong>, because it is derived purely
+            from public geometry with no easing assumptions layered on top. The eased variant is published
+            beside it for comparison, not substituted for it. Chainages here still will not correspond
+            one-to-one with a DPR&apos;s.
           </p>
         </Section>
 

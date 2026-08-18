@@ -1,0 +1,53 @@
+{
+ "channel_following_km": 41.241,
+ "eased_km": 36.429,
+ "reported_project_km": 36.0,
+ "gap_explained": "The eased variant reaches the reported project length, at the cost of departing the mapped channel by up to 875.4 m to cut meanders.",
+ "selected_for_scoring": "channel_following",
+ "why": "Scoring stays on the channel-following alignment because it is derived purely from public geometry with no easing assumptions layered on top. The eased variant is published for comparison, not substituted.",
+ "trade_off": [
+  {
+   "easing_iterations": 0,
+   "length_km": 41.125,
+   "drift_m": 0.0,
+   "vertices_below_irc_min": 28,
+   "vertices_total": 824,
+   "p5_radius_m": 465.9,
+   "median_radius_m": 100000.0
+  },
+  {
+   "easing_iterations": 250,
+   "length_km": 38.09,
+   "drift_m": 431.8,
+   "vertices_below_irc_min": 7,
+   "vertices_total": 824,
+   "p5_radius_m": 1304.0,
+   "median_radius_m": 3811.6
+  },
+  {
+   "easing_iterations": 1000,
+   "length_km": 36.429,
+   "drift_m": 875.4,
+   "vertices_below_irc_min": 11,
+   "vertices_total": 824,
+   "p5_radius_m": 2593.9,
+   "median_radius_m": 8430.8
+  },
+  {
+   "easing_iterations": 2000,
+   "length_km": 35.327,
+   "drift_m": 1240.2,
+   "vertices_below_irc_min": 12,
+   "vertices_total": 824,
+   "p5_radius_m": 3071.5,
+   "median_radius_m": 14291.7
+  }
+ ],
+ "easing_iterations": 1000,
+ "length_km": 36.429,
+ "drift_from_channel_m": 875.4,
+ "vertices_below_irc_min": 11,
+ "vertices_total": 824,
+ "p5_radius_m": 2593.9,
+ "irc86_min_radius_m": 150.0
+}
