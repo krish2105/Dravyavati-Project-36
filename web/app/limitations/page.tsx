@@ -54,12 +54,19 @@ export default function LimitationsPage() {
             fit would produce scattered or empty coverage. You can switch it on over the map.
           </p>
           <p>
-            What is still <em>not</em> done is classifying the land-use colours into zoning categories. That
-            is a separate problem with its own error budget — legend colours are printed over hatching and
-            shifted by scanning — and a misclassification would attach a confidently wrong land use to real
-            chainages. So no chainage carries a zoning attribute. The registered sheet is published as an
-            overlay instead, which lets a reviewer read zoning against the corridor directly without
-            trusting a classifier nobody has validated.
+            What is still <em>not</em> done is classifying the land-use colours into zoning categories, and
+            reading the sheet&apos;s own legend settled why. The categories are separated by <strong>hatch
+            pattern and embedded letter codes, not fill colour</strong>. Commercial (specialised market) and
+            wholesale market are both pink cross-hatch. Central park and stadium are both dot-filled and
+            differ only by the letters CP and S. A nearest-colour classifier would merge those pairs
+            systematically, and it would do so silently.
+          </p>
+          <p>
+            So no chainage carries a zoning attribute. Instead the registered sheet is published as an
+            overlay with its full 18-category legend transcribed beside it in both languages, plus the
+            legend as printed, so a reviewer decodes the hatching by eye rather than trusting a classifier
+            nobody has validated. Doing this properly would need texture classification plus OCR of the
+            embedded codes at scan resolution — a research task, not a quick pass.
           </p>
         </Section>
 

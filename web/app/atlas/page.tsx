@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { MapShell } from "@/components/atlas/map-shell";
 import { LegendPanel } from "@/components/atlas/legend-panel";
+import { ZoningLegend } from "@/components/atlas/zoning-legend";
 import { SiteHeader } from "@/components/site-header";
 import { useJson, type Analytics } from "@/lib/analytics";
 import { useT, useLang } from "@/lib/i18n";
@@ -76,6 +77,7 @@ export default function AtlasPage() {
           }`}
         >
           <LegendPanel />
+          {zoningOverlay && <ZoningLegend />}
         </aside>
 
         {railOpen && (
@@ -109,7 +111,11 @@ export default function AtlasPage() {
             <button
               type="button"
               aria-pressed={zoningOverlay}
-              onClick={() => setZoningOverlay((v) => !v)}
+              onClick={() => {
+                const next = !zoningOverlay;
+                setZoningOverlay(next);
+                if (next && window.innerWidth < 1024) setRailOpen(true);
+              }}
               className={`pointer-events-auto rounded-full border px-3 py-1.5 text-xs shadow-lg backdrop-blur transition-colors ${
                 zoningOverlay
                   ? "border-channel/60 bg-channel/20 text-foreground"

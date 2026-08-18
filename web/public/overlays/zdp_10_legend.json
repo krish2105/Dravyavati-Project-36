@@ -1,0 +1,97 @@
+{
+ "sheet": "10",
+ "source": "JDA approved Zonal Development Plan, sheet 10 legend",
+ "why_not_classified": "Categories are separated by hatch pattern and embedded letter codes, not by fill colour alone. Several share a base colour and differ only in hatching or code (commercial vs wholesale market; central park vs stadium). A nearest-colour classifier would merge those pairs systematically, so the legend is published for direct reading instead.",
+ "categories": [
+  {
+   "en": "Residential",
+   "hi": "आवासीय",
+   "symbology": "flat/hatched"
+  },
+  {
+   "en": "Commercial (specialised market, 'SM')",
+   "hi": "वाणिज्यिक (विशिष्ट बाज़ार)",
+   "symbology": "cross-hatch + letter code"
+  },
+  {
+   "en": "Wholesale market & godown",
+   "hi": "थोक बाज़ार एवं गोदाम",
+   "symbology": "cross-hatch"
+  },
+  {
+   "en": "Mixed use",
+   "hi": "मिश्रित उपयोग",
+   "symbology": "horizontal hatch"
+  },
+  {
+   "en": "Central park ('CP')",
+   "hi": "सेंट्रल पार्क",
+   "symbology": "dotted + letter code"
+  },
+  {
+   "en": "Stadium ('S')",
+   "hi": "स्टेडियम",
+   "symbology": "dotted + letter code"
+  },
+  {
+   "en": "Other recreational",
+   "hi": "अन्य मनोरंजन",
+   "symbology": "flat green"
+  },
+  {
+   "en": "Cremation / burial ground ('C/B')",
+   "hi": "श्मशान / कब्रिस्तान",
+   "symbology": "cross-hatch + letter code"
+  },
+  {
+   "en": "Circulation",
+   "hi": "परिवहन / सर्कुलेशन",
+   "symbology": "flat periwinkle"
+  },
+  {
+   "en": "Proposed road",
+   "hi": "प्रस्तावित सड़क",
+   "symbology": "flat periwinkle band"
+  },
+  {
+   "en": "Government & semi-government",
+   "hi": "सरकारी एवं अर्ध-सरकारी",
+   "symbology": "checkered"
+  },
+  {
+   "en": "Industrial",
+   "hi": "औद्योगिक",
+   "symbology": "vertical hatch"
+  },
+  {
+   "en": "Tourist facility",
+   "hi": "पर्यटन सुविधा",
+   "symbology": "dotted"
+  },
+  {
+   "en": "Nallah / river",
+   "hi": "नाला / नदी",
+   "symbology": "flat light blue"
+  },
+  {
+   "en": "HT line safety corridor",
+   "hi": "HT लाइन सुरक्षा गलियारा",
+   "symbology": "flat green band"
+  },
+  {
+   "en": "Railway line (broad gauge)",
+   "hi": "रेलवे लाइन (ब्रॉड गेज)",
+   "symbology": "line symbol"
+  },
+  {
+   "en": "VUP & PUP (underpass)",
+   "hi": "VUP एवं PUP (अंडरपास)",
+   "symbology": "symbol"
+  },
+  {
+   "en": "Commitment boundary",
+   "hi": "प्रतिबद्धता सीमा",
+   "symbology": "outline"
+  }
+ ]
+}
