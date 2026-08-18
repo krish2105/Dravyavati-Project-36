@@ -47,12 +47,18 @@ export default function LimitationsPage() {
             converted into zoning polygons, and no chainage carries a land-use attribute.
           </p>
           <p>
-            The sheets are roughly 10,800 × 15,000 px scans with no embedded coordinate system and no
-            printed graticule that survives at usable resolution. Georeferencing them properly needs
-            hand-picked ground control points and per-legend colour classification. Doing that quickly would
-            risk silently assigning the wrong land use to real chainages, which is worse than having no
-            zoning layer at all — so it was left undone, with the sheets staged for the work to be done
-            deliberately and its registration error published alongside.
+            An earlier version of this page said the sheets carried no usable coordinate reference. That
+            was wrong, and the correction is favourable: the sheets do print a labelled geographic
+            graticule — a meridian tick reading 75°40&apos;30&quot;E on sheet 10 — and a graphic scale bar.
+            They are georeferenceable to survey precision from the sheet alone, with no eyeballed control
+            points needed.
+          </p>
+          <p>
+            What remains is separating the ruled graticule from drawn watercourses, which are inked in a
+            similar blue and defeat a simple colour threshold. That is contained work. It was not rushed to
+            completion, because a transform fitted from mis-identified lines would assign wrong land use to
+            real chainages while looking entirely plausible — and no zoning will be published here until a
+            transform exists and its RMS residual is published beside it.
           </p>
         </Section>
 
