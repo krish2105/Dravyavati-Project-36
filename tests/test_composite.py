@@ -32,5 +32,5 @@ def test_no_nulls_in_composite(risk_df):
 def test_robust_hotspot_count_is_discriminating(risk_df):
     count = risk_df["robust_hotspot"].sum()
     # Pack §7: 8-20 is healthy; 100 means no discrimination, 2 means degenerate
-    # weights. Reported, not hard-failed, since this is real data behaviour.
-    assert count >= 0  # sanity: column exists and is boolean-summable
+    # weights.
+    assert 8 <= count <= 20

@@ -1,17 +1,17 @@
 """Session 5 verification: dense-urban vs peri-urban habitation gradient."""
 
-import geopandas as gpd
+import pandas as pd
 import pytest
 
-from src.geo.chainage import PROCESSED_DIR
+from src.scoring.composite import PROCESSED_DIR
 
 
 @pytest.fixture(scope="module")
 def chainage_gdf():
-    path = PROCESSED_DIR / "chainage.geojson"
-    if not path.exists() or "habitation_proximity_score" not in gpd.read_file(path).columns:
-        pytest.skip("run `python -m src.scoring.land` first")
-    return gpd.read_file(path)
+    path = PROCESSED_DIR / "chainage_risk.parquet"
+    if not path.exists():
+        pytest.skip("run `python -m src.scoring.composite` first")
+    return pd.read_parquet(path)
 
 
 def test_habitation_scores_are_in_range(chainage_gdf):

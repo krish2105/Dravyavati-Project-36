@@ -38,7 +38,11 @@ def _buildings_gdf() -> gpd.GeoDataFrame:
             continue
         coords = [(p["lon"], p["lat"]) for p in geom]
         if coords[0] == coords[-1]:
-            polys.append(Polygon(coords))
+            poly = Polygon(coords)
+            if not poly.is_valid:
+                poly = poly.buffer(0)  # standard fix for minor OSM digitisation self-intersections
+            if not poly.is_empty:
+                polys.append(poly)
     if not polys:
         return gpd.GeoDataFrame(geometry=[], crs="EPSG:4326")
     return gpd.GeoDataFrame(geometry=polys, crs="EPSG:4326").to_crs(WORKING_CRS)

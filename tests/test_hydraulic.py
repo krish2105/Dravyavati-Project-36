@@ -1,17 +1,17 @@
 """Session 6 verification: monotonic downstream, correct column naming."""
 
-import geopandas as gpd
+import pandas as pd
 import pytest
 
-from src.geo.chainage import PROCESSED_DIR
+from src.scoring.composite import PROCESSED_DIR
 
 
 @pytest.fixture(scope="module")
 def chainage_gdf():
-    path = PROCESSED_DIR / "chainage.geojson"
-    if not path.exists() or "hydraulic_sensitivity_index" not in gpd.read_file(path).columns:
-        pytest.skip("run `python -m src.scoring.hydraulic` first")
-    return gpd.read_file(path)
+    path = PROCESSED_DIR / "chainage_risk.parquet"
+    if not path.exists():
+        pytest.skip("run `python -m src.scoring.composite` first")
+    return pd.read_parquet(path)
 
 
 def test_hydraulic_index_is_monotonic_downstream(chainage_gdf):
